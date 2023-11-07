@@ -1,0 +1,26 @@
+.weeb-nav-container {
+  color:white;
+  height: 92px;
+  background-color: #2E2B2B;
+
+  .weeb-logo {
+    margin: 0;
+  }
+
+  .weeb-navigation {
+    display: flex;
+    align-items: flex-end;
+    height: 58%;
+
+
+    .weeb-navigation-links {
+      list-style-type: none;
+      display: flex;
+      height: 20%;
+
+      .weeb-link {
+        margin-right: 16px;
+      }
+    }
+  }
+}
