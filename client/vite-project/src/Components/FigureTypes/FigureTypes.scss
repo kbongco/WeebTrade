@@ -35,6 +35,9 @@
       flex-basis: 50%; /* Two items in one row */
       box-sizing: border-box; /* Includes padding and borders in the width */
       position: relative; /* To position the overlay text */
+      display: flex;
+      justify-content: center;
+
 
       .figure-image {
         display: block;
@@ -49,5 +52,18 @@
         font-size: 2rem;
       }
     }
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .figures-container {
+    .figures-images {
+      .figure-image-container {
+      .figure-text-overlay {
+        left: 30%;
+    transform: translateX(-30%);
+      }
+    }
+  }
   }
 }
