@@ -1,5 +1,53 @@
 .figures-container {
   .figures-header {
     text-align: center;
+    font-size: 2.15rem;
+  }
+
+  .figures-images {
+    .figure-image-container {
+      position: relative;
+
+      .figure-image {
+        height: 371px;
+        width: 386px;
+        margin: 16px;
+      }
+
+      .figure-text-overlay {
+        font-weight: 200;
+        position: absolute;
+    top: 87%;
+    left: 6%;
+    font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .figures-images {
+    display: flex;
+    flex-wrap: wrap;
+
+    .figure-image-container {
+      width: 50%; /* Two items in one row */
+      flex-basis: 50%; /* Two items in one row */
+      box-sizing: border-box; /* Includes padding and borders in the width */
+      position: relative; /* To position the overlay text */
+
+      .figure-image {
+        display: block;
+        width: 100%; /* Full width within the container */
+        height: auto;
+      }
+
+      .figure-text-overlay {
+        position: absolute;
+        top: 86%;
+        left: 4%;
+        font-size: 2rem;
+      }
+    }
   }
 }
