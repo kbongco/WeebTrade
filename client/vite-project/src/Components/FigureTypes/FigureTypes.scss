@@ -1,5 +1,73 @@
 .figures-container {
   .figures-header {
     text-align: center;
+    font-size: 2.15rem;
+  }
+
+  .figures-images {
+    .figure-image-container {
+      position: relative;
+
+      .figure-image {
+        height: 371px;
+        width: 386px;
+        margin: 16px;
+      }
+
+      .figure-text-overlay {
+        font-weight: 200;
+        position: absolute;
+    top: 87%;
+    left: 6%;
+    font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .figures-images {
+    display: flex;
+    flex-wrap: wrap;
+
+    .figure-image-container {
+      width: 50%; 
+      flex-basis: 50%; 
+      box-sizing: border-box; 
+      position: relative; 
+      display: flex;
+      justify-content: center;
+
+
+      .figure-image {
+        display: block;
+        width: 100%; 
+        height: auto;
+      }
+
+      .figure-text-overlay {
+        position: absolute;
+        top: 86%;
+        left: 4%;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .figures-container {
+    .figures-header {
+      text-align: left;
+      margin-left: 5%;
+    }
+    .figures-images {
+      .figure-image-container {
+      .figure-text-overlay {
+        left: 30%;
+    transform: translateX(-30%);
+      }
+    }
+  }
   }
 }
