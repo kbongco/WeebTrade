@@ -5,6 +5,7 @@ import viteLogo from '/vite.svg'
 import NavBar from './Components/NavBar/NavBar';
 import Hero from './Components/Hero/Hero';
 import FigureTypes from './Components/FigureTypes/FigreTypes';
+import TopAnime from './Components/TopAnime/TopAnime';
 
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
       <Hero title={title} imageSrc={imageSrc} buttonLabels={buttonLabels} description={description} />
       <div className='figure-types'>
       <FigureTypes/>
+      </div>
+      <div className='top-anime-series'>
+        <TopAnime/>
       </div>
 
     </>
