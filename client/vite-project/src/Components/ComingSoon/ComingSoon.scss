@@ -5,6 +5,7 @@
   margin-right: 24px;
   margin-bottom: 24px;
   height: 650px;
+  border-radius: 30px;
 
   .coming-soon-header-container {
     padding-top: 20%;
@@ -38,15 +39,39 @@
       .coming-soon-button-container {
         margin-top: 24px;
         display: flex;
-        justify-content: end;
+        justify-content: center;
 
         .coming-soon-subscribe-button {
           height: 50px;
-          width: 120px;
+          width: 185px;
           border-radius: 20px;
-          background-color: #1BE5A8;
+          background-color: #1be5a8;
         }
       }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .coming-soon-container {
+    .coming-soon-header-container {
+      padding-top: 10%;
+    }
+
+    .coming-soon-message-container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .coming-soon-email-sub {
+      .coming-soon-input-container {
+        .coming-soon-input {
+          width: 45vw;
+        }
+      }
+    }
+
+    .coming-soon-button-container {
+      justify-content: end;
     }
   }
 }
