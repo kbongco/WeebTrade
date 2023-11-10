@@ -1,0 +1,77 @@
+.coming-soon-container {
+  margin-top: 64px;
+  background-color: #2e2b2b;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  height: 650px;
+  border-radius: 30px;
+
+  .coming-soon-header-container {
+    padding-top: 20%;
+
+    .coming-soon-header {
+      color: white;
+      text-align: center;
+    }
+  }
+
+  .coming-soon-message-container {
+    color: white;
+    padding: 24px;
+    font-size: 1.3rem;
+  }
+
+  .coming-soon-email-sub {
+    display: flex;
+    justify-content: center;
+
+    .coming-soon-input-container {
+      display: flex;
+      flex-direction: column;
+      color: white;
+
+      .coming-soon-input {
+        height: 5vh;
+        width: 70vw;
+      }
+
+      .coming-soon-button-container {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+
+        .coming-soon-subscribe-button {
+          height: 50px;
+          width: 185px;
+          border-radius: 20px;
+          background-color: #1be5a8;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .coming-soon-container {
+    .coming-soon-header-container {
+      padding-top: 10%;
+    }
+
+    .coming-soon-message-container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .coming-soon-email-sub {
+      .coming-soon-input-container {
+        .coming-soon-input {
+          width: 45vw;
+        }
+      }
+    }
+
+    .coming-soon-button-container {
+      justify-content: end;
+    }
+  }
+}
