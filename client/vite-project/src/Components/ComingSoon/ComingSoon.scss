@@ -1,0 +1,52 @@
+.coming-soon-container {
+  margin-top: 64px;
+  background-color: #2e2b2b;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  height: 650px;
+
+  .coming-soon-header-container {
+    padding-top: 20%;
+
+    .coming-soon-header {
+      color: white;
+      text-align: center;
+    }
+  }
+
+  .coming-soon-message-container {
+    color: white;
+    padding: 24px;
+    font-size: 1.3rem;
+  }
+
+  .coming-soon-email-sub {
+    display: flex;
+    justify-content: center;
+
+    .coming-soon-input-container {
+      display: flex;
+      flex-direction: column;
+      color: white;
+
+      .coming-soon-input {
+        height: 5vh;
+        width: 70vw;
+      }
+
+      .coming-soon-button-container {
+        margin-top: 24px;
+        display: flex;
+        justify-content: end;
+
+        .coming-soon-subscribe-button {
+          height: 50px;
+          width: 120px;
+          border-radius: 20px;
+          background-color: #1BE5A8;
+        }
+      }
+    }
+  }
+}
