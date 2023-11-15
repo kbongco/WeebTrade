@@ -20,12 +20,14 @@
       .weeb-trade-card-input-one {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        margin-left: 65px;
+        align-items: center;
+        // margin-left: 65px;
 
         .weeb-trade-input-container {
           display: flex;
           flex-direction: column;
+          align-items: center;
+          width: 90%;
         }
 
         .weeb-trade-top-container {
@@ -41,8 +43,9 @@
       .weeb-trade-card-button-container {
         display: flex;
         justify-content: center;
+        align-items: center;
         margin-top: 32px;
-        
+
         .weeb-button-sign {
           height: 53px;
           width: 169px;
@@ -65,4 +68,17 @@
         border-radius: 100px;
       }
     }
+}
+
+@media screen and (min-width: 768px) {
+  .weeb-trade-card {
+    .weeb-trade-text {
+      font-size: 2rem;
+    }
+  }
+
+  .weeb-trade-input-container {
+    font-size: 1.7rem;
+  }
+  
 }
