@@ -4,3 +4,15 @@ export default interface HeroComponent {
   description: string;
   buttonLabels?: string[];
 }
+
+export default interface CardComponent {
+  cardTitle: string;
+  input1: string;
+  input2?: string;
+  icons?: any;
+  button: any;
+}
+
+export default interface ButtonComponent {
+  label: string;
+}
