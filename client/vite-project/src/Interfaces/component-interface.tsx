@@ -9,8 +9,7 @@ export default interface CardComponent {
   cardTitle: string;
   input1: string;
   input2?: string;
-  icon1?: string;
-  icon2?: string;
+  icons?: any;
   button: any;
 }
 

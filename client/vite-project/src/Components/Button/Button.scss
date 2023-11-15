@@ -1,0 +1,16 @@
+.weeb-button-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+
+  .weeb-button {
+    height: 53px;
+    width: 197px;
+    border-radius: 20px;
+    background-color: #1BE5A8;
+    margin-bottom: 24px;
+    font-size: 1.3rem;
+  }
+}
