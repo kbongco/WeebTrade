@@ -8,7 +8,7 @@ export default function Login() {
   const cardTitle = 'Login';
 
   return (
-    <div>
+    <div className='login-container'>
       <Card icons={LoginIcons} cardTitle={cardTitle} button={<Button label={cardTitle} />} input={Input} />
     </div>
   )
