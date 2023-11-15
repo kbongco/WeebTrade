@@ -1,9 +1,10 @@
 import React from 'react';
+import Card from '../../Components/CardInfo/CardInfo';
 
 export default function Login() {
   return (
     <div>
-      <h1> This is the login page</h1>
+      <Card/>
     </div>
   )
 }
