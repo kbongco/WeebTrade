@@ -34,8 +34,35 @@
 
         .input-one, .input-two {
           width: 72%;
-          height: 25px;
+          height: 38px;
         }
+      }
+
+      .weeb-trade-card-button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+        
+        .weeb-button-sign {
+          height: 53px;
+          width: 169px;
+          border-radius: 20px;
+          background-color: #1BE5A8;
+          margin-bottom: 24px;
+        }
+      }
+    }
+
+    .weeb-trade-icons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+
+      .login-icon-one, .login-icon-two {
+        height: 62px;
+        width: 84px;
+        background-color: white;
+        border-radius: 100px;
       }
     }
 }

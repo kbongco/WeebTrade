@@ -11,4 +11,9 @@ export default interface CardComponent {
   input2?: string;
   icon1?: string;
   icon2?: string;
+  button: any;
+}
+
+export default interface ButtonComponent {
+  label: string;
 }

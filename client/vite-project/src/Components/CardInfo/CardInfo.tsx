@@ -1,5 +1,8 @@
 import React from 'react';
 import './CardInfo.scss';
+import DiscordIcon from '../../assets/discord.svg'
+import GoogleIcon from '../../assets/google.svg';
+
 
 export default function Card(props: any) {
   return (
@@ -17,12 +20,13 @@ export default function Card(props: any) {
           </div>
         </div>
         <div className='weeb-trade-card-button-container'>
-          
+          <button className='weeb-button-sign'>Login</button>
         </div>
       </div>
       <div className='weeb-trade-icons'>
-        <p>Test</p>
-        <p>Test</p>
+        {/* <p>Test</p> */}
+        <img className='login-icon-one' src={DiscordIcon} alt="Example Icon" />
+       <img className='login-icon-two' src={GoogleIcon}/>
       </div>
     </div>
   )
