@@ -1,6 +1,6 @@
 .weeb-input-container {
   margin-left: 5%;
-  
+
   .label-container {
     padding-bottom: 16px;
     
@@ -12,5 +12,12 @@
   .weeb-input {
     width: 247px;
     height: 30px;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .search-style {
+    width: 85%;
+    height: 40px;
   }
 }
