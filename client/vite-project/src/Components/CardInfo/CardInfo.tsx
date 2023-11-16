@@ -7,6 +7,7 @@ import { CardComponent } from '../../Interfaces/component-interface'
 export default function Card({ cardTitle, icons, button, input }: CardComponent) {
   console.log(input);
   return (
+    <div className='card-container'>
     <div className='weeb-trade-card'>
       <h1 className='weeb-trade-text'>{cardTitle}</h1>
       <div className='weeb-trade-card-inputs'>
@@ -27,6 +28,7 @@ export default function Card({ cardTitle, icons, button, input }: CardComponent)
           {button}
         </div>
       </div>     {icons && <LoginIcons/>}
+    </div>
     </div>
   )
 }

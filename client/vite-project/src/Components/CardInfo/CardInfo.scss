@@ -1,4 +1,8 @@
-.weeb-trade-card {
+.card-container {
+  display: flex;
+  justify-content: center;
+
+  .weeb-trade-card {
   background-color: #2E2B2B;
     height: 550px;
     width: 85%;
@@ -67,6 +71,8 @@
       }
     }
 }
+}
+
 
 @media screen and (min-width: 768px) {
   .weeb-trade-card {

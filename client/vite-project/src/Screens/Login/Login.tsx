@@ -9,8 +9,6 @@ export default function Login() {
   const loginInputs = ['Email', 'Password']
 
   return (
-    <div className='login-container'>
       <Card icons={LoginIcons} cardTitle={cardTitle} button={<Button label={cardTitle} />} input={loginInputs} />
-    </div>
   )
 }
