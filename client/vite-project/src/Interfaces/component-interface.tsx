@@ -1,3 +1,5 @@
+import { ButtonStyle, InputStyle } from "../enums/component-enums";
+
 export default interface HeroComponent {
   title: string;
   imageSrc: string;
@@ -7,12 +9,18 @@ export default interface HeroComponent {
 
 export default interface CardComponent {
   cardTitle: string;
-  input1: string;
-  input2?: string;
+  input?: any;
   icons?: any;
-  button: any;
+  button?: any;
+  buttonsGroup?: string;
 }
 
 export default interface ButtonComponent {
   label: string;
+  style?: ButtonStyle;
+}
+
+export default interface InputComponent {
+  label: string;
+  styles?: InputStyle;
 }

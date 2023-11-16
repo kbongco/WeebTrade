@@ -11,6 +11,11 @@ export default function NavBar() {
           <li className='weeb-link'>Browse</li>
           <li className='weeb-link'>Top Anime</li>
           <li className='weeb-link'>
+          <Link className='weeb-exact-link'>
+            Search
+            </Link>
+            </li>
+          <li className='weeb-link'>
           <Link className='weeb-exact-link' exact to='/login'>
             Login
             </Link>

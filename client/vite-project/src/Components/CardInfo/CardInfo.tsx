@@ -1,26 +1,48 @@
 import './CardInfo.scss';
 import LoginIcons from '../LoginIcons/LoginIcons';
 import Input from '../Input/Input';
+import { CardComponent } from '../../Interfaces/component-interface'
+import Button from '../Button/Button';
+import { ButtonStyle } from '../../enums/component-enums';
 
 
-export default function Card({cardTitle,icons, button, input}: any) {
+export default function Card({ cardTitle, icons, button, input, buttonsGroup, buttonsGroupTitle }: CardComponent) {
   return (
-    <div className='weeb-trade-card'>
-      <h1 className='weeb-trade-text'>{cardTitle}</h1>
-      <div className='weeb-trade-card-inputs'>
-        <div className='weeb-trade-card-input-one'>
-          <div className='weeb-trade-input-container weeb-trade-top-container'>
-          <Input label="Email"/>
-          </div>
-          <div className='weeb-trade-input-container'>
-          <Input label="Password"/>
+    <div className='card-container'>
+      <div className='weeb-trade-card'>
+        <h1 className='weeb-trade-text'>{cardTitle}</h1>
+        <div className='weeb-trade-card-inputs'>
+          {Array.isArray(input) ? (
+            <div className='weeb-trade-card-input-one'>
+              {input.map((label, index) => (
+                <div key={index} className='weeb-trade-input-container'>
+                  <Input label={label} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className='weeb-trade-input-container'>
+              {input && <Input label={input} />}
+            </div>
+          )}
+          {buttonsGroup && (
+            <div className='weeb-trade-card-additional-buttons'>
+              {buttonsGroupTitle && (
+                <div className='additional-buttons-title'>{buttonsGroupTitle}</div>
+              )}
+              <div className='weeb-trade-card-add-buttons-container'>
+                {buttonsGroup.map((label: string, index: number) => (
+                  <Button key={index} label={label} style={ButtonStyle.xSmall} />
+                ))}
+              </div>
+            </div>
+          )}
+          <div className='weeb-trade-card-button-container'>
+            {button}
           </div>
         </div>
-        <div className='weeb-trade-card-button-container'>
-          {button}
-        </div>
+        {icons && <LoginIcons />}
       </div>
-     {icons && <LoginIcons/>}
     </div>
   )
 }
