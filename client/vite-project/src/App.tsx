@@ -5,6 +5,7 @@ import TopAnime from './Components/TopAnime/TopAnime';
 import ComingSoon from './Components/ComingSoon/ComingSoon';
 import { Routes, Route, useRoutes } from 'react-router-dom';
 import Login from './Screens/Login/Login';
+import Search from './Screens/Search/Search';
 import FigureTypes from './Components/FigureTypes/FigreTypes';
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
             </>
           ),
         },
+
+        {path:'/search', element: <Search/>}
       ])}
     </>
   );

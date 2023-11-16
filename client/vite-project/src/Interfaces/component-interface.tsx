@@ -7,10 +7,9 @@ export default interface HeroComponent {
 
 export default interface CardComponent {
   cardTitle: string;
-  input1: string;
-  input2?: string;
+  input?: any;
   icons?: any;
-  button: any;
+  button?: any;
 }
 
 export default interface ButtonComponent {
