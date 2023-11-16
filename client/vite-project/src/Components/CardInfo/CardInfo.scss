@@ -3,7 +3,7 @@
   justify-content: center;
 
   .weeb-trade-card {
-  background-color: #2E2B2B;
+    background-color: #2e2b2b;
     height: 550px;
     width: 85%;
     margin-top: 72px;
@@ -19,7 +19,7 @@
     .weeb-trade-card-inputs {
       display: flex;
       flex-direction: column;
-      
+
       .weeb-trade-card-input-one {
         display: flex;
         flex-direction: column;
@@ -36,7 +36,8 @@
           padding-bottom: 32px;
         }
 
-        .input-one, .input-two {
+        .input-one,
+        .input-two {
           width: 72%;
           height: 38px;
         }
@@ -52,7 +53,7 @@
           height: 53px;
           width: 169px;
           border-radius: 20px;
-          background-color: #1BE5A8;
+          background-color: #1be5a8;
           margin-bottom: 24px;
         }
       }
@@ -63,16 +64,30 @@
       justify-content: center;
       gap: 16px;
 
-      .login-icon-one, .login-icon-two {
+      .login-icon-one,
+      .login-icon-two {
         height: 62px;
         width: 84px;
         background-color: white;
         border-radius: 100px;
       }
     }
-}
-}
 
+    .weeb-trade-card-additional-buttons {
+      .additional-buttons-title {
+        font-size: 1.25rem;
+        margin-top: 24px;
+        margin-left: 24px;
+      }
+
+      .weeb-trade-card-add-buttons-container {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 16px;
+      }
+    }
+  }
+}
 
 @media screen and (min-width: 768px) {
   .weeb-trade-card {
@@ -84,5 +99,4 @@
   .weeb-trade-input-container {
     font-size: 1.7rem;
   }
-  
 }
