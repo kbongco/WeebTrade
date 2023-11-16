@@ -1,3 +1,5 @@
+import { ButtonStyle } from "../enums/component-enums";
+
 export default interface HeroComponent {
   title: string;
   imageSrc: string;
@@ -10,8 +12,10 @@ export default interface CardComponent {
   input?: any;
   icons?: any;
   button?: any;
+  buttonsGroup?: string;
 }
 
 export default interface ButtonComponent {
   label: string;
+  style: ButtonStyle;
 }
