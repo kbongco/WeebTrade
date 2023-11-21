@@ -17,8 +17,9 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <MainContainer/>
+      <MainContainer />
+      {/* ToDo: Delete comments once search page is added in :)  */}
+      {/* <NavBar />
       {useRoutes([
         { path: '/login', element: <Login /> },
         {
@@ -40,7 +41,7 @@ function App() {
         },
 
         {path:'/search', element: <Search/>}
-      ])}
+      ])} */}
     </>
   );
 }
