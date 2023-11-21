@@ -39,7 +39,7 @@ export default function MainContainer() {
                 <FigureTypes />
                 </div>
                 <div className='top-anime-series'>
-                <TopAnime />
+                  <TopAnime anime={anime} />
                 </div>
                 <div className='coming-soon'>
                 <ComingSoon />
