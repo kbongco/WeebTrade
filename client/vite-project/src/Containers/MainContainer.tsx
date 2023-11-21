@@ -8,6 +8,7 @@ import Hero from '../Components/Hero/Hero';
 import FigureTypes from '../Components/FigureTypes/FigreTypes';
 import TopAnime from '../Components/TopAnime/TopAnime';
 import ComingSoon from '../Components/ComingSoon/ComingSoon';
+import { getFigureTypes } from '../services/figure-types';
 
 export default function MainContainer() {
   const title = 'WeebTrades';
@@ -15,18 +16,31 @@ export default function MainContainer() {
   const buttonLabels = ['Sign up', 'Browse'];
   const description = "A platform for anime figure enthusiasts to trade and find rare figures!"
   const [anime, setAnime] = useState<any>([]);
+  const [figureTypes, setFigureTypes] = useState<any>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchAnime = async () => {
-      const animeArray = await getAnime();
-      setAnime(animeArray);
-    }
-    fetchAnime();
+    const fetchData = async () => {
+      try {
+        const animeArray = await getAnime();
+        setAnime(animeArray);
+      } catch (error) {
+        setError('Error fetching anime data');
+      }
+
+      try {
+        const figureTypeArray = await getFigureTypes();
+        setFigureTypes(figureTypeArray);
+      } catch (error) {
+        setError('Error fetching figure types data');
+      }
+    };
+
+    fetchData();
   }, []);
   return (
     <>
       <NavBar />
-      <h1>Container!!</h1>
       {
         useRoutes([
           { path: '/login', element: <Login /> },
@@ -36,7 +50,7 @@ export default function MainContainer() {
               <>
                 <Hero title={title} imageSrc={imageSrc} buttonLabels={buttonLabels} description={description} />
                 <div className='figure-types'>
-                <FigureTypes />
+                <FigureTypes figureTypes={figureTypes} />
                 </div>
                 <div className='top-anime-series'>
                   <TopAnime anime={anime} />
