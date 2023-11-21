@@ -7,6 +7,7 @@ import { Routes, Route, useRoutes } from 'react-router-dom';
 import Login from './Screens/Login/Login';
 import Search from './Screens/Search/Search';
 import FigureTypes from './Components/FigureTypes/FigreTypes';
+import MainContainer from './Containers/MainContainer';
 
 function App() {
   const title = 'WeebTrades';
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
       <NavBar />
+      <MainContainer/>
       {useRoutes([
         { path: '/login', element: <Login /> },
         {
