@@ -1,7 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
-
-const baseURL = import.meta.env.BASE_URL;
-const anonKey = import.meta.env.ANON_KEY;
+import supabase from "../lib/supabase";
 
 
 export async function getAnime() {
