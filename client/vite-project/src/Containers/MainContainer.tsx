@@ -1,6 +1,6 @@
+
 import { getAnime } from './../services/anime'
-import { useState, useEffect } from 'react';
-import React from 'react';
+import React,  { useState, useEffect } from 'react';
 import NavBar from '../Components/NavBar/NavBar';
 import Login from '../Screens/Login/Login';
 import { useRoutes } from 'react-router-dom';
@@ -9,6 +9,8 @@ import FigureTypes from '../Components/FigureTypes/FigreTypes';
 import TopAnime from '../Components/TopAnime/TopAnime';
 import ComingSoon from '../Components/ComingSoon/ComingSoon';
 import { getFigureTypes } from '../services/figure-types';
+import AnimeDetails from '../Screens/AnimeDetails/AnimeDetails';
+import BrowseSeries from '../Screens/BrowseSeries/BrowseSeries';
 
 export default function MainContainer() {
   const title = 'WeebTrades';
@@ -60,7 +62,9 @@ export default function MainContainer() {
               </div>
               </>
             )
-          }
+          },
+          { path: '/anime/:title', element: <AnimeDetails /> },
+          { path: '/browse/series', element: <BrowseSeries anime={anime} />}
         ])
       }
     </>
