@@ -63,7 +63,7 @@ export default function MainContainer() {
               </>
             )
           },
-          { path: '/anime/:title', element: <AnimeDetails /> },
+          { path: '/anime/:title', element: <AnimeDetails anime={anime} /> },
           { path: '/browse/series', element: <BrowseSeries anime={anime} />}
         ])
       }

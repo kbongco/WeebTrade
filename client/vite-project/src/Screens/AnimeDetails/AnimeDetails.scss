@@ -1,0 +1,22 @@
+.weeb-anime-details {
+  .weeb-detail-title {
+    margin: 16px;
+  }
+  .weeb-detail-img-container {
+    padding: 16px;
+    .weeb-detail-img {
+      width: 92%;
+    }
+  }
+
+  .weeb-details-container {
+    padding: 8px;
+
+    .weeb-details-details {
+      margin: 24px;
+      .weeb-details-text {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
