@@ -11,6 +11,7 @@ import ComingSoon from '../Components/ComingSoon/ComingSoon';
 import { getFigureTypes } from '../services/figure-types';
 import AnimeDetails from '../Screens/AnimeDetails/AnimeDetails';
 import BrowseSeries from '../Screens/BrowseSeries/BrowseSeries';
+import { getFigures } from '../services/figures';
 
 export default function MainContainer() {
   const title = 'WeebTrades';
@@ -19,6 +20,7 @@ export default function MainContainer() {
   const description = "A platform for anime figure enthusiasts to trade and find rare figures!"
   const [anime, setAnime] = useState<any>([]);
   const [figureTypes, setFigureTypes] = useState<any>([]);
+  const [figures, setFigures] = useState<any>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -35,6 +37,13 @@ export default function MainContainer() {
         setFigureTypes(figureTypeArray);
       } catch (error) {
         setError('Error fetching figure types data');
+      }
+      
+      try {
+        const figuresArray = await getFigures();
+        setFigures(figuresArray);
+      } catch (error) {
+        setError('Error getting anime data');
       }
     };
 

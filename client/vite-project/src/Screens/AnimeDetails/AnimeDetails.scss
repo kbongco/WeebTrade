@@ -20,3 +20,16 @@
     }
   }
 }
+
+@media screen and (min-width:1024px) {
+  .weeb-anime-details {
+    .weeb-detail-title {
+      margin-left: 72px;
+      font-size: 3rem;
+    }
+    .weeb-detail-img-container {
+      margin-left: 64px;
+      margin-right: 64px;
+    }
+  }
+}
