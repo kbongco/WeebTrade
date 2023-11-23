@@ -1,0 +1,21 @@
+.breadcrumbs-container {
+  .breadcrumbs-list {
+    display: flex;
+    list-style-type: none;
+    padding-left: 16px;
+    font-size: 1.25rem;
+
+    .bread-crumb-links {
+      text-decoration: none;
+      margin-right: 8px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .bread-crumb-links:last-child {
+      margin-right: 0;
+    }
+  }
+}

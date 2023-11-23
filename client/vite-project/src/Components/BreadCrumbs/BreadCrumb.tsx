@@ -1,28 +1,33 @@
 import { Link, useLocation } from 'react-router-dom';
 import BreadCrumbsComponent from '../../Interfaces/component-interface';
+import './BreadCrumb.scss'
 
 export default function BreadCrumbs({ breadCrumbs }: BreadCrumbsComponent) {
-  const { pathname } = useLocation();
-  const paths = pathname.split('/').filter((path) => path !== '');
 
-  const breadcrumbs = paths.map((path, index) => {
-    const breadcrumb = {
-      label: path, // You can format the label as needed
-      path: `/${paths.slice(0, index + 1).join('/')}`,
+  const breadcrumbs = breadCrumbs.map((breadcrumb:any, index:number) => {
+    const label =
+      breadcrumb.label === 'Series' && index === breadCrumbs.length - 1
+        ? breadcrumb.label
+        : breadcrumb.label || ''; 
+  
+    const path = breadcrumb.path || '';
+  
+    return {
+      label,
+      path,
     };
-
-    return breadcrumb;
   });
 
+
   return (
-    <nav>
-      <ul>
-        {breadcrumbs.map((breadcrumb, index) => (
+    <nav className='breadcrumbs-container'>
+      <ul className='breadcrumbs-list'>
+        {breadcrumbs.map((breadcrumb:any, index:number) => (
           <li key={index}>
             {breadcrumb.path ? (
-              <Link to={breadcrumb.path}>{breadcrumb.label}</Link>
+              <Link className='bread-crumb-links' to={breadcrumb.path}> {breadcrumb.label} / </Link>
             ) : (
-              <span>{breadcrumb.label}</span>
+              <span> {breadcrumb.label}</span>
             )}
           </li>
         ))}
