@@ -1,0 +1,33 @@
+.product-card {
+  background-color: #2E2B2B;
+  height: 497px;
+  width: 297px;
+
+  .product-card-img-container {
+    display: flex;
+    justify-content: center;
+
+    .product-img {
+      width: 66%;
+      margin-top: 24px;
+    }
+  }
+
+  .product-card-text {
+    padding: 24px;
+    color: white;
+    font-size: 1.3rem;
+  }
+
+  .product-card-details {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+
+    .product-card-view {
+      color: white;
+      font-size: 1.7rem;
+    }
+  }
+}
