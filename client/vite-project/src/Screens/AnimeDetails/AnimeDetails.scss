@@ -21,6 +21,15 @@
   }
 }
 
+.current-figures-header {
+  margin-left: 24px;
+}
+
+.current-figures-container-component {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width:1024px) {
   .weeb-anime-details {
     .weeb-detail-title {
@@ -31,5 +40,12 @@
       margin-left: 64px;
       margin-right: 64px;
     }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .current-figures-container-component {
+    display: flex;
+    flex-direction: row;
   }
 }

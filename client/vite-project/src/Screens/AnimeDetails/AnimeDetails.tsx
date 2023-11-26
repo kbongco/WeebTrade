@@ -41,7 +41,10 @@ export default function AnimeDetails(props) {
           <p>Anime not found</p>
         )}
       </div>
-      <div className='current-figures-container'>
+      <div className='current-figures-header'>
+        <h1>Current Figures</h1>
+      </div>
+      <div className='current-figures-container-component'>
         <CurrentFigures anime={anime} figureTypes={figureTypes} />
       </div>
     </>

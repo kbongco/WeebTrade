@@ -13,7 +13,6 @@ export default function CurrentFigures({anime, figureTypes}) {
   return (
     <>
       <div className='current-figures-container'>
-        <h1>Current Figures</h1>
         <div className='all-current-figures-container'>
         {animeFigures.map((figure: any, id: number) => (
           <ProductCard key={id} {...figure} figureType={allFigureTypes}/>
