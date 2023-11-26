@@ -1,0 +1,16 @@
+.current-figures-container {
+  .all-current-figures-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .current-figures-container {
+    .all-current-figures-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

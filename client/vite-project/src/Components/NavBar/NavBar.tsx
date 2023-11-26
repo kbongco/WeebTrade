@@ -8,20 +8,22 @@ export default function NavBar() {
       <div className='weeb-navigation'>
         <ul className='weeb-navigation-links'>
           <li className='weeb-link'>Home</li>
-          <li className='weeb-link'>Browse</li>
+          <li className='weeb-link'>
+            <Link className='weeb-exact-link' to='/browse/series'>Browse</Link>
+          </li>
           <li className='weeb-link'>Top Anime</li>
           <li className='weeb-link'>
-          <Link className='weeb-exact-link'>
-            Search
+            <Link className='weeb-exact-link'>
+              Search
             </Link>
-            </li>
+          </li>
           <li className='weeb-link'>
-          <Link className='weeb-exact-link' exact to='/login'>
-            Login
+            <Link className='weeb-exact-link' to='/login'>
+              Login
             </Link>
           </li>
         </ul>
       </div>
-     </div>
+    </div>
   )
 }

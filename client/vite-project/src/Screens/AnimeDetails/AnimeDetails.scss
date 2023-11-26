@@ -1,0 +1,51 @@
+.weeb-anime-details {
+  .weeb-detail-title {
+    margin: 16px;
+  }
+  .weeb-detail-img-container {
+    padding: 16px;
+    .weeb-detail-img {
+      width: 99%;
+    }
+  }
+
+  .weeb-details-container {
+    padding: 8px;
+
+    .weeb-details-details {
+      margin: 24px;
+      .weeb-details-text {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.current-figures-header {
+  margin-left: 24px;
+}
+
+.current-figures-container-component {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width:1024px) {
+  .weeb-anime-details {
+    .weeb-detail-title {
+      margin-left: 72px;
+      font-size: 3rem;
+    }
+    .weeb-detail-img-container {
+      margin-left: 64px;
+      margin-right: 64px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .current-figures-container-component {
+    display: flex;
+    flex-direction: row;
+  }
+}

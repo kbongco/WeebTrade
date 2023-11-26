@@ -18,30 +18,6 @@ function App() {
   return (
     <>
       <MainContainer />
-      {/* ToDo: Delete comments once search page is added in :)  */}
-      {/* <NavBar />
-      {useRoutes([
-        { path: '/login', element: <Login /> },
-        {
-          index: true,
-          element: (
-            <>
-              <Hero title={title} imageSrc={imageSrc} buttonLabels={buttonLabels} description={description} />
-              <div className='figure-types'>
-                <FigureTypes />
-              </div>
-              <div className='top-anime-series'>
-                <TopAnime />
-              </div>
-              <div className='coming-soon'>
-                <ComingSoon />
-              </div>
-            </>
-          ),
-        },
-
-        {path:'/search', element: <Search/>}
-      ])} */}
     </>
   );
 }

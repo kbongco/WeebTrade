@@ -24,3 +24,10 @@ export default interface InputComponent {
   label: string;
   styles?: InputStyle;
 }
+
+export default interface BreadCrumbsComponent {
+  routes: {
+    label: string;
+    path: string;
+  }
+}
