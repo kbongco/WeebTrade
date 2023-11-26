@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import './AnimeDetails.scss';
 import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumb";
 import CurrentFigures from "../../Components/CurrentFigures/CurrentFigures";
+import { useFigures } from "../../Context/FiguresContext";
 
 export default function AnimeDetails(props) {
 
@@ -38,7 +39,7 @@ export default function AnimeDetails(props) {
         )}
       </div>
       <div className='current-figures-container'>
-        <CurrentFigures/>
+        <CurrentFigures anime={anime} />
       </div>
     </>
   );

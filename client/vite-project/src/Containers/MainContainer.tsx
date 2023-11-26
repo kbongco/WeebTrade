@@ -12,6 +12,7 @@ import { getFigureTypes } from '../services/figure-types';
 import AnimeDetails from '../Screens/AnimeDetails/AnimeDetails';
 import BrowseSeries from '../Screens/BrowseSeries/BrowseSeries';
 import { getFigures } from '../services/figures';
+import { FiguresProvider } from '../Context/FiguresContext';
 
 export default function MainContainer() {
   const title = 'WeebTrades';
@@ -38,19 +39,13 @@ export default function MainContainer() {
       } catch (error) {
         setError('Error fetching figure types data');
       }
-      
-      try {
-        const figuresArray = await getFigures();
-        setFigures(figuresArray);
-      } catch (error) {
-        setError('Error getting anime data');
-      }
     };
 
     fetchData();
   }, []);
   return (
     <>
+      <FiguresProvider>
       <NavBar />
       {
         useRoutes([
@@ -72,10 +67,11 @@ export default function MainContainer() {
               </>
             )
           },
-          { path: '/anime/:title', element: <AnimeDetails anime={anime} /> },
+          { path: '/anime/:title', element: <AnimeDetails anime={anime} figures={figures} /> },
           { path: '/browse/series', element: <BrowseSeries anime={anime} />}
         ])
-      }
+        }
+      </FiguresProvider>
     </>
   )
 }
