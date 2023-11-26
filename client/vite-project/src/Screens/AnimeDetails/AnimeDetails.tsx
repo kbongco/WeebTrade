@@ -5,12 +5,10 @@ import CurrentFigures from "../../Components/CurrentFigures/CurrentFigures";
 import { useFigures } from "../../Context/FiguresContext";
 
 export default function AnimeDetails(props) {
-  console.log(props);
 
   const { title } = useParams();
   const anime = props.anime.find((anime) => anime.Title === title);
   const figureTypes = props.figureTypes;
-  console.log(figureTypes);
   const breadcrumbData = [
     { label: 'Home', path: '/' },
     { label: 'Series', path: '/browse/series' },
