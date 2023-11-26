@@ -2,8 +2,6 @@ import './ProductCard.scss';
 
 export default function ProductCard(props) {
   const { imgLink, FigureName, FigureType, figureType  } = props;
-  console.log(FigureType);
-  console.log(figureType)
   // FigureType represents the ID number that corresponds to the figureTypeId\
 
   const mapIdToText = (id: any) => {
