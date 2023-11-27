@@ -19,7 +19,9 @@ export default function FigureDetails(props) {
         </div>
         <div className='figure-photo-value-container'>
           {/* <p className='figure-value-text'>*****</p> */}
-          <Ratings/>
+          <div className='figure-star-container'>
+            <Ratings />
+          </div>
           <p className='figure-value-text'>$$</p>
         </div>
         <div className='figure-description-container'>
