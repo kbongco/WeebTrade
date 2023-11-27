@@ -31,3 +31,8 @@ export default interface BreadCrumbsComponent {
     path: string;
   }
 }
+
+export default interface AccordionComponent {
+  title: string;
+  content?: string;
+}

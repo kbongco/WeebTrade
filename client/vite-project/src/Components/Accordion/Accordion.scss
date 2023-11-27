@@ -1,0 +1,16 @@
+.accordion-container {
+  font-size: 1.7rem;
+  margin-top: 24px;
+  padding: 16px;
+
+  .accordion-title {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid black;
+  }
+
+  .accordion-content {
+    padding: 24px;
+
+  }
+}
