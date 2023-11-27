@@ -12,6 +12,7 @@ import { getFigureTypes } from '../services/figure-types';
 import AnimeDetails from '../Screens/AnimeDetails/AnimeDetails';
 import BrowseSeries from '../Screens/BrowseSeries/BrowseSeries';
 import { FiguresProvider } from '../Context/FiguresContext';
+import FigureDetails from '../Screens/FigureDetails/FigureDetails';
 
 export default function MainContainer() {
   const title = 'WeebTrades';
@@ -67,7 +68,8 @@ export default function MainContainer() {
             )
           },
           { path: '/anime/:title', element: <AnimeDetails anime={anime} figures={figures} figureTypes={figureTypes} /> },
-          { path: '/browse/series', element: <BrowseSeries anime={anime} />}
+          { path: '/browse/series', element: <BrowseSeries anime={anime} /> },
+          { path: '/browse/figures/figureName', element: <FigureDetails figures={figures} />}
         ])
         }
       </FiguresProvider>
