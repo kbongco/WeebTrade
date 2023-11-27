@@ -13,7 +13,7 @@ function App() {
   const title = 'WeebTrades';
   const imageSrc = "https://i.ibb.co/ZKp0nfr/Screen-Shot-2023-11-06-at-11-03-13-AM.png";
   const buttonLabels = ['Sign up', 'Browse'];
-  const description = "A platform for anime figure enthusiasts to trade and find rare figures!"
+  const content= "A platform for anime figure enthusiasts to trade and find rare figures!"
 
   return (
     <>
