@@ -2,6 +2,7 @@ import Accordion from "../../Components/Accordion/Accordion";
 import { useFigures } from "../../Context/FiguresContext";
 import Button from "../../Components/Button/Button";
 import './FigureDetails.scss';
+import Ratings from "../../Components/Ratings/Ratings";
 
 export default function FigureDetails(props) {
   const figures = useFigures();
@@ -17,7 +18,8 @@ export default function FigureDetails(props) {
             <img className='figure-photo' src='https://i.ibb.co/hZtfZKY/Screen-Shot-2023-11-21-at-1-53-11-PM.png' />
         </div>
         <div className='figure-photo-value-container'>
-          <p className='figure-value-text'>*****</p>
+          {/* <p className='figure-value-text'>*****</p> */}
+          <Ratings/>
           <p className='figure-value-text'>$$</p>
         </div>
         <div className='figure-description-container'>
