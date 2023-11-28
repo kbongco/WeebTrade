@@ -18,7 +18,6 @@ export default function FigureDetails(props) {
             <img className='figure-photo' src='https://i.ibb.co/hZtfZKY/Screen-Shot-2023-11-21-at-1-53-11-PM.png' />
         </div>
         <div className='figure-photo-value-container'>
-          {/* <p className='figure-value-text'>*****</p> */}
           <div className='figure-star-container'>
             <Ratings />
           </div>
@@ -34,8 +33,7 @@ export default function FigureDetails(props) {
           <Accordion title={title} content={content} />
         </div>
         <div className='figure-button-container'>
-          <Button label={'Offer'} />
-          <Button label={'Add to wishlist'}/>
+          <Button label={'Make an Offer'} />
         </div>
       </div>
     </>
