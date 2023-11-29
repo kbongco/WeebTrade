@@ -6,6 +6,7 @@ export default function CurrentFigures({anime, figureTypes}) {
   const figures: any = useFigures();
   const allFigures = figures.figures;
   const animeFigures = allFigures.filter((figure: any) => figure.Anime === anime?.id)
+  console.log(animeFigures);
   const allFigureTypes = animeFigures.map((figure: any) =>
   figureTypes.find((type: any) => type.id === figure.FigureType)
 );
@@ -14,9 +15,13 @@ export default function CurrentFigures({anime, figureTypes}) {
     <>
       <div className='current-figures-container'>
         <div className='all-current-figures-container'>
-        {animeFigures.map((figure: any, id: number) => (
-          <ProductCard key={id} {...figure} figureType={allFigureTypes}/>
-        ))}
+        {animeFigures.length > 0 ? (
+            animeFigures.map((figure: any, id: number) => (
+              <ProductCard key={id} {...figure} figureType={allFigureTypes} />
+            ))
+          ) : (
+            <p>Currently no figures available. Check back later!</p>
+          )}
         </div>
       </div>
     </>

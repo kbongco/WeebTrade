@@ -69,7 +69,7 @@ export default function MainContainer() {
           },
           { path: '/anime/:title', element: <AnimeDetails anime={anime} figures={figures} figureTypes={figureTypes} /> },
           { path: '/browse/series', element: <BrowseSeries anime={anime} /> },
-          { path: '/browse/figures/figureName', element: <FigureDetails figures={figures} />}
+          { path: '/browse/figures/:FigureName', element: <FigureDetails figures={figures} />}
         ])
         }
       </FiguresProvider>
