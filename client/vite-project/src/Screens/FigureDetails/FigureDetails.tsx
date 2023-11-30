@@ -45,7 +45,7 @@ export default function FigureDetails(props) {
       </div>
       <div className='similar-figures-container'>
         <h2 className='similar-figures-header-details'>Similar Figures</h2>
-        <SimilarFigures figures={figures} />
+        <SimilarFigures figures={figures} currentFigure={currentFigure} />
       </div>
 
     </>

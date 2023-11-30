@@ -7,8 +7,8 @@ export default function ProductCard(props) {
   console.log(FigureName);
 
   const mapIdToText = (id: any) => {
-    const matchingType = figureType.find((type:any) => type?.id === id);
-    return matchingType ? matchingType.FigureType : 'Unknown Type';
+    const matchingType = figureType?.find((type:any) => type?.id === id);
+    return matchingType ? matchingType?.FigureType : '';
   }
 
   const figureTypeText = mapIdToText(FigureType);
