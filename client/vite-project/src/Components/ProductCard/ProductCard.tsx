@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import './ProductCard.scss';
+import FigureTypesInterface from '../../Interfaces/figure-type-interface';
 
 export default function ProductCard(props) {
   const { imgLink, FigureName, FigureType, figureType  } = props;
   // FigureType represents the ID number that corresponds to the figureTypeId\
-  console.log(FigureName);
 
-  const mapIdToText = (id: any) => {
-    const matchingType = figureType?.find((type:any) => type?.id === id);
+  const mapIdToText = (id: number) => {
+    const matchingType = figureType?.find((type:FigureTypesInterface) => type?.id === id);
     return matchingType ? matchingType?.FigureType : '';
   }
 
