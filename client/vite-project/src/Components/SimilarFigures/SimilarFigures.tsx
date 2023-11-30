@@ -1,5 +1,6 @@
 import { useFigures } from "../../Context/FiguresContext";
 import ProductCard from "../ProductCard/ProductCard";
+import './SimilarFigures.scss';
 
 export default function SimilarFigures(props) {
   
