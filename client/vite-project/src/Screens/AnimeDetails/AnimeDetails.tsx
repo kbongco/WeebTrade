@@ -41,7 +41,7 @@ export default function AnimeDetails(props) {
         )}
       </div>
       <div className='current-figures-header'>
-        <h1>Current Figures</h1>
+        <h1>Featured Figures</h1>
       </div>
       <div className='current-figures-container-component'>
         <CurrentFigures anime={anime} figureTypes={figureTypes} />

@@ -1,6 +1,5 @@
 .product-card {
   background-color: #2E2B2B;
-
   height: 297px;
   width: 197px;
 
@@ -25,8 +24,8 @@
   .product-card-details {
     display: flex;
     justify-content: center;
-    height: 100px;
     align-items: center;
+    margin-top: 8px;
 
     .product-card-view {
       color: white;
