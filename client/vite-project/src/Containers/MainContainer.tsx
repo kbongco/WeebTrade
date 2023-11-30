@@ -13,6 +13,7 @@ import AnimeDetails from '../Screens/AnimeDetails/AnimeDetails';
 import BrowseSeries from '../Screens/BrowseSeries/BrowseSeries';
 import { FiguresProvider } from '../Context/FiguresContext';
 import FigureDetails from '../Screens/FigureDetails/FigureDetails';
+import { UsersProvider } from '../Context/UsersContext';
 
 export default function MainContainer() {
   const title = 'WeebTrades';
@@ -23,6 +24,7 @@ export default function MainContainer() {
   const [figureTypes, setFigureTypes] = useState<any>([]);
   const [figures, setFigures] = useState<any>([]);
   const [error, setError] = useState<string | null>(null);
+  const [users, setUsers] = useState<any>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,6 +47,7 @@ export default function MainContainer() {
   }, []);
   return (
     <>
+      <UsersProvider>
       <FiguresProvider>
       <NavBar />
       {
@@ -69,10 +72,11 @@ export default function MainContainer() {
           },
           { path: '/anime/:title', element: <AnimeDetails anime={anime} figures={figures} figureTypes={figureTypes} /> },
           { path: '/browse/series', element: <BrowseSeries anime={anime} /> },
-          { path: '/browse/figures/:FigureName', element: <FigureDetails figures={figures} />}
+          { path: '/browse/figures/:FigureName', element: <FigureDetails figures={figures} users={users} />}
         ])
         }
-      </FiguresProvider>
+        </FiguresProvider>
+        </UsersProvider>
     </>
   )
 }
