@@ -15,9 +15,33 @@
 
   .user-card-text {
     .user-shop-name {
+      text-align: center;
       font-size: 1.3rem;
       margin-top: 8px;
       margin-bottom: 8px;
+    }
+
+    .user-ratings-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .user-card-details {
+    .user-card-link {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 1.25rem;
+    }
+
+    .user-contact-icons-container {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 16px;
+
+      svg {
+        height: 24px;
+      }
     }
   }
 }

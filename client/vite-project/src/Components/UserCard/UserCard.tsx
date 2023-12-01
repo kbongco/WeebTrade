@@ -2,6 +2,7 @@ import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './UserCard.scss';
+import Ratings from "../Ratings/Ratings";
 
 export default function UserCard(props) {
   return (
@@ -12,7 +13,9 @@ export default function UserCard(props) {
         </div>
         <div className='user-card-text'>
           <p className='user-shop-name'>Stick Shop</p>
-          <p>****</p>
+          <div className='user-ratings-container'>
+            <Ratings />
+            </div>
         </div>
         <div className='user-card-details'>
           <div className='user-card-link'>
