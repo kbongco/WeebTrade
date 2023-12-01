@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import FigureTypesInterface from '../../Interfaces/figure-type-interface';
+import ProductCardComponent from '../../Interfaces/component-interface';
 
 export default function ProductCard(props) {
   const { imgLink, FigureName, FigureType, figureType  } = props;

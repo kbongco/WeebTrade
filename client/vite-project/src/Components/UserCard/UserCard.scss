@@ -1,0 +1,23 @@
+.user-card {
+  background-color: #D9D9D9;
+  height: 297px;
+  width: 197px;
+  
+  .user-card-img-container {
+    display: flex;
+    justify-content: center;
+
+    .user-img {
+      width: 66%;
+      margin-top: 24px;
+    }
+  }
+
+  .user-card-text {
+    .user-shop-name {
+      font-size: 1.3rem;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  }
+}
