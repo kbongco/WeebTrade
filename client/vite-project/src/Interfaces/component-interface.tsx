@@ -1,4 +1,5 @@
 import { ButtonStyle, InputStyle } from "../enums/component-enums";
+import FigureTypesInterface from "./figure-type-interface";
 
 export default interface HeroComponent {
   title: string;
@@ -35,4 +36,13 @@ export default interface BreadCrumbsComponent {
 export default interface AccordionComponent {
   title: string;
   content?: string;
+}
+
+export default interface ProductCardComponent {
+  imgLink: string;
+  name: string;
+  typeName?: string;
+  itemType?: string;
+  itemTypes: FigureTypesInterface[];
+  baseUrl: string;
 }
