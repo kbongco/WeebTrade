@@ -4,17 +4,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './UserCard.scss';
 import Ratings from "../Ratings/Ratings";
 
-export default function UserCard(props) {
+export default function UserCard({ user }) {
+  console.log(user);
+  const shopRating = Number(user.shop.shoprating);
+  console.log(shopRating);
   return (
     <>
       <div className='user-card'>
         <div className='user-card-img-container'>
-          <img className='user-img' src="https://i.ibb.co/Gxrcn0K/Screen-Shot-2023-11-26-at-11-08-03-PM.png" />
+          <img className='user-img' src={user.profilepic}/>
         </div>
         <div className='user-card-text'>
-          <p className='user-shop-name'>Stick Shop</p>
+          <p className='user-shop-name'>{user.shop.shopname}</p>
           <div className='user-ratings-container'>
-            <Ratings />
+            <Ratings rating={shopRating} />
             </div>
         </div>
         <div className='user-card-details'>

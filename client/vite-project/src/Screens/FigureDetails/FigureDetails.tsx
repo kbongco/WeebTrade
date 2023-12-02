@@ -15,10 +15,11 @@ export default function FigureDetails(props) {
   const users: any = useUsers();
   const allFigures = figures.figures;
   const allUsers = users.users;
+  const allShops = props.shops;
   const currentFigure = allFigures.find((figure) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
   const title = 'Disclaimer';
   const content = 'Weeb trade is not responsible for any lost money or any shenanigans. Please use caution when trading with users to avoid being scammed'
-  console.log(props);
+  console.log(allShops);
   const breadcrumbData = [
     { label: 'Home', path: '/' },
     { label: 'Figures', path: '/browse/figures' },
@@ -61,7 +62,7 @@ export default function FigureDetails(props) {
       </div>
       <div className='current-users-offers'>
         <h2>Current users Offering this figure</h2>
-        <UsersOffers users={allUsers} />
+        <UsersOffers users={allUsers} shops={allShops} />
       </div>
 
     </>
