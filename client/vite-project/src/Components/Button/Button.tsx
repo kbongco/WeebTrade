@@ -2,7 +2,7 @@ import ButtonComponent from '../../Interfaces/component-interface';
 import './Button.scss';
 import { ButtonStyle } from '../../enums/component-enums';
 
-export default function Button({ label, style = ButtonStyle.regular }: ButtonComponent) {
+export default function Button({ label, style = ButtonStyle.regular, onClick }: ButtonComponent) {
 
   const getStyles = (): string => {
     switch (style) {
@@ -15,7 +15,7 @@ export default function Button({ label, style = ButtonStyle.regular }: ButtonCom
 
   return (
     <div className='weeb-button-container'>
-      <button className={`weeb-button ${getStyles()}`}>
+      <button className={`weeb-button ${getStyles()}`} onClick={onClick}>
         {label}
       </button>
     </div>

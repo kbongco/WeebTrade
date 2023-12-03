@@ -19,12 +19,15 @@ export default function FigureDetails(props) {
   const currentFigure = allFigures.find((figure) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
   const title = 'Disclaimer';
   const content = 'Weeb trade is not responsible for any lost money or any shenanigans. Please use caution when trading with users to avoid being scammed'
-  console.log(allShops);
   const breadcrumbData = [
     { label: 'Home', path: '/' },
     { label: 'Figures', path: '/browse/figures' },
     { label: FigureName, path: `browse/figures/${FigureName}`}
   ]
+
+  const handleClick = () => {
+    console.log('this works!')
+  }
   return (
     <>
       <BreadCrumbs breadCrumbs={breadcrumbData}/>
@@ -52,7 +55,7 @@ export default function FigureDetails(props) {
             <Accordion title={title} content={content} />
           </div>
           <div className='figure-button-container'>
-            <Button label={'Make an Offer'} />
+            <Button label={'Make an Offer'} onClick={handleClick} />
           </div>
         </div>
       </div>

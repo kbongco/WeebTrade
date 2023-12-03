@@ -19,6 +19,7 @@ export default interface CardComponent {
 export default interface ButtonComponent {
   label: string;
   style?: ButtonStyle;
+  onClick?: any;
 }
 
 export default interface InputComponent {

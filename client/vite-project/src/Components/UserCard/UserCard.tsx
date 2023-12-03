@@ -6,16 +6,16 @@ import Ratings from "../Ratings/Ratings";
 
 export default function UserCard({ user }) {
   console.log(user);
-  const shopRating = Number(user.shop.shoprating);
+  const shopRating = Number(user?.shop?.shoprating);
   console.log(shopRating);
   return (
     <>
       <div className='user-card'>
         <div className='user-card-img-container'>
-          <img className='user-img' src={user.profilepic}/>
+          <img className='user-img' src={user?.profilepic}/>
         </div>
         <div className='user-card-text'>
-          <p className='user-shop-name'>{user.shop.shopname}</p>
+          <p className='user-shop-name'>{user?.shop?.shopname}</p>
           <div className='user-ratings-container'>
             <Ratings rating={shopRating} />
             </div>
