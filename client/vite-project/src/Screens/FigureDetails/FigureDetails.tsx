@@ -8,6 +8,8 @@ import SimilarFigures from "../../Components/SimilarFigures/SimilarFigures";
 import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumb";
 import UsersOffers from "../../Components/UsersOffering/UsersOffer";
 import { useUsers } from "../../Context/UsersContext";
+import { useState } from "react";
+import Modal from "../../Components/Modal/Modal";
 
 export default function FigureDetails(props) {
   const { FigureName } = useParams();
@@ -18,6 +20,7 @@ export default function FigureDetails(props) {
   const allShops = props.shops;
   const currentFigure = allFigures.find((figure) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
   const title = 'Disclaimer';
+  const modalTitle = 'Make an offer';
   const content = 'Weeb trade is not responsible for any lost money or any shenanigans. Please use caution when trading with users to avoid being scammed'
   const breadcrumbData = [
     { label: 'Home', path: '/' },
@@ -25,9 +28,13 @@ export default function FigureDetails(props) {
     { label: FigureName, path: `browse/figures/${FigureName}`}
   ]
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleClick = () => {
     console.log('this works!')
+    setIsModalOpen(true);
   }
+  
   return (
     <>
       <BreadCrumbs breadCrumbs={breadcrumbData}/>
@@ -68,6 +75,7 @@ export default function FigureDetails(props) {
         <UsersOffers users={allUsers} shops={allShops} />
       </div>
 
+      {isModalOpen ? <Modal isOpen={isModalOpen} modalTitle={modalTitle} /> : ''}
     </>
   )
 }
