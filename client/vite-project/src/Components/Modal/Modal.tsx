@@ -3,6 +3,7 @@ import './Modal.scss'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import Button from '../Button/Button';
+import ButtonComponent from '../../Interfaces/component-interface';
 
 
 export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerContent }: any){
@@ -32,7 +33,7 @@ export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerCo
           <footer>
             {footerContent && footerContent.length > 0 && (
               <div className='footer-buttons-container'>
-                {footerContent.map((button, index) => (
+                {footerContent.map((button: ButtonComponent, index: number) => (
                   <Button key={index} onClick={button.onClick} color={button.color} label={button.label} size={button.size} />
                 ))}
               </div>

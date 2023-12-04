@@ -49,3 +49,7 @@ export default interface ProductCardComponent {
   itemTypes: FigureTypesInterface[];
   baseUrl: string;
 }
+
+export default interface RadioButtonComponent {
+  label: string;
+}

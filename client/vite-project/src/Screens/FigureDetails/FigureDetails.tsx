@@ -10,8 +10,9 @@ import UsersOffers from "../../Components/UsersOffering/UsersOffer";
 import { useUsers } from "../../Context/UsersContext";
 import { useState } from "react";
 import Modal from "../../Components/Modal/Modal";
-import { ButtonStyle } from "../../enums/component-enums";
 import { disclaimerMessage, disclaimerTitle } from "../../constants";
+import RadioButton from "../../Components/RadioButton/RadioButton";
+import RadioButtonGroup from "../../Components/RadioButton/RadioButtonGroup/RadioButtonGroup";
 
 export default function FigureDetails(props) {
   const { FigureName } = useParams();
@@ -22,14 +23,13 @@ export default function FigureDetails(props) {
   const allShops = props.shops;
   const currentFigure = allFigures.find((figure) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
   const modalTitle = 'Make an offer';
-  const modalBody = 'Are you looking to sell and make money or are you looking to trade a figure? '
+  // const modalBody = 'Are you looking to sell and make money or are you looking to trade a figure? '
   const breadcrumbData = [
     { label: 'Home', path: '/' },
     { label: 'Figures', path: '/browse/figures' },
     { label: FigureName, path: `browse/figures/${FigureName}`}
   ]
 
-  
 
   const footerDetails = [
     { label: 'Confirm', color: 'green', size: 'small',  onClick: () => console.log('Confirm clicked') },
@@ -42,6 +42,24 @@ export default function FigureDetails(props) {
     console.log('this works!')
     setIsModalOpen(true);
   }
+
+  const radioButtonOptions = [
+    {
+    label: 'Cash', value: 'cash'
+    },
+    {
+      label: 'Figures', value: 'figures'
+    }
+]
+
+  const modalBody = (
+    <div>
+    <p>Are you looking to sell and make money or are you looking to trade a figure?</p>
+      <div className='radio-button-container'>
+        <RadioButtonGroup options={radioButtonOptions} />
+      </div>
+    </div>
+  )
   
   return (
     <>
