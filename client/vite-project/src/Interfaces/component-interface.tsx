@@ -18,7 +18,9 @@ export default interface CardComponent {
 
 export default interface ButtonComponent {
   label: string;
-  style?: ButtonStyle;
+  color: string;
+  size: string;
+  type?: string;
   onClick?: any;
 }
 

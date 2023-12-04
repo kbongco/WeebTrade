@@ -10,20 +10,39 @@
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
 
-    .modal {
-      background-color: white;
-      height: 620px;
-      width: 370px;
-      border-radius: 20px;
+  .modal {
+    background-color: white;
+    height: 620px;
+    width: 370px;
+    border-radius: 20px;
 
-      .modal-content {
-        .close-container {
-          margin-top: 8px;
-          display: flex;
-          justify-content: end;
-          width: 100%;
-          margin-right: 16px;
-        }
+    .modal-content {
+      .modal-header {
+        text-align: center;
+      }
+
+      .close-container {
+        margin-top: 8px;
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        margin-right: 16px;
+      }
+
+      .modal-body {
+        height: auto;
+        font-size: 1.3rem;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: auto;
+      }
+
+      .footer-buttons-container {
+        display: flex;
+        justify-content: end;
+        gap: 16px;
+        padding-right: 16px;
       }
     }
+  }
 }

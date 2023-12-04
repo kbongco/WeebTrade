@@ -14,10 +14,18 @@
     font-size: 1.3rem;
   }
 
-  .x-small {
+  .weeb-button-red {
+    background-color:red; 
+  }
+
+  .weeb-button-x-small {
     width: 101px;
     font-size: 1.0rem;
     border-radius: 0;
     height: 46px;
+  }
+
+  .weeb-button-small {
+    width: 161px;
   }
 }
