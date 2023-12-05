@@ -1,7 +1,7 @@
 import './RadioButton.scss';
 
 
-export default function RadioButton({ label, isChecked, onChange, value }: any) { 
+export default function RadioButton({ label, checked, onChange, value }: any) { 
   
   const handleChange = () => {
     onChange(value);
@@ -10,7 +10,7 @@ export default function RadioButton({ label, isChecked, onChange, value }: any) 
   return (
     <>
       <div className='radio-button-container'>
-        <input type='radio' isChecked={isChecked} onChange={handleChange} />
+        <input type='radio' checked={checked} onChange={handleChange} />
         <label className='radio-label' value={value}>{label}</label>
       </div>
   </>

@@ -11,22 +11,17 @@ interface RadioButtonProps {
 }
 
 
-export default function RadioButtonGroup({options}:RadioButtonProps) {
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const handleRadioButtonChange = (value: string) => {
-    setSelectedOption(value);
-  }
+export default function RadioButtonGroup({options, onChange, selectedOption }:any) {
 
   return ( 
     <>
       <div className='radio-button-group-container'>
-      {options.map((option, index) => (
+      {options.map((option:RadioButtonOption, index:number) => (
         <RadioButton
           key={index}
           label={option.label}
           value={option.value}
-          onChange={handleRadioButtonChange}
+          onChange={onChange}
           checked={selectedOption === option.value}
         />
       ))}

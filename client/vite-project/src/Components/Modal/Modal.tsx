@@ -7,10 +7,9 @@ import ButtonComponent from '../../Interfaces/component-interface';
 
 
 export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerContent }: any){
-  const [isModalOpen, setIsModalOpen] = useState(isOpen);
 
   const handleClose = () => {
-    setIsModalOpen(false);
+    onClose();
     console.log('Closing!')
     console.log(isOpen);
   }
@@ -27,9 +26,7 @@ export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerCo
             </div>
             <h1>{modalTitle}</h1>
           </header>
-          <body className='modal-body'>
-            <p>{modalBody}</p>
-          </body>
+          {modalBody}
           <footer>
             {footerContent && footerContent.length > 0 && (
               <div className='footer-buttons-container'>

@@ -11,8 +11,8 @@ import { useUsers } from "../../Context/UsersContext";
 import { useState } from "react";
 import Modal from "../../Components/Modal/Modal";
 import { disclaimerMessage, disclaimerTitle } from "../../constants";
-import RadioButton from "../../Components/RadioButton/RadioButton";
 import RadioButtonGroup from "../../Components/RadioButton/RadioButtonGroup/RadioButtonGroup";
+import { Figures } from "../../Interfaces/anime-interface";
 
 export default function FigureDetails(props) {
   const { FigureName } = useParams();
@@ -21,16 +21,14 @@ export default function FigureDetails(props) {
   const allFigures = figures.figures;
   const allUsers = users.users;
   const allShops = props.shops;
-  const currentFigure = allFigures.find((figure) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
+  const currentFigure = allFigures.find((figure:Figures) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
   const modalTitle = 'Make an offer';
-  // const modalBody = 'Are you looking to sell and make money or are you looking to trade a figure? '
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const breadcrumbData = [
     { label: 'Home', path: '/' },
     { label: 'Figures', path: '/browse/figures' },
     { label: FigureName, path: `browse/figures/${FigureName}`}
   ]
-
-
   const footerDetails = [
     { label: 'Confirm', color: 'green', size: 'small',  onClick: () => console.log('Confirm clicked') },
     { label: 'Cancel', color: 'red', size: 'small',  onClick: () => console.log('Cancel clicked') }
@@ -38,10 +36,22 @@ export default function FigureDetails(props) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleRadioButtonChange = (value: string) => {
+    setSelectedOption(value);
+    console.log(value, 'radio');
+  };
+
   const handleClick = () => {
     console.log('this works!')
     setIsModalOpen(true);
   }
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+    console.log('Closing!')
+    // console.log(isOpen);
+  }
+
 
   const radioButtonOptions = [
     {
@@ -53,12 +63,12 @@ export default function FigureDetails(props) {
 ]
 
   const modalBody = (
-    <div>
+    <body className='modal-body'>
     <p>Are you looking to sell and make money or are you looking to trade a figure?</p>
       <div className='radio-button-container'>
-        <RadioButtonGroup options={radioButtonOptions} />
+        <RadioButtonGroup options={radioButtonOptions} onChange={handleRadioButtonChange} selectedOption={selectedOption} />
       </div>
-    </div>
+    </body>
   )
   
   return (
@@ -101,7 +111,7 @@ export default function FigureDetails(props) {
         <UsersOffers users={allUsers} shops={allShops} />
       </div>
 
-      {isModalOpen ? <Modal isOpen={isModalOpen} modalTitle={modalTitle} modalBody={modalBody} footerContent={footerDetails} />  : ''}
+      {isModalOpen ? <Modal isOpen={isModalOpen} modalTitle={modalTitle} modalBody={modalBody} footerContent={footerDetails} onClose={handleClose} />  : ''}
     </>
   )
 }
