@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Modal.scss'
 import { faX } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
 import Button from '../Button/Button';
 import ButtonComponent from '../../Interfaces/component-interface';
 import ModalComponent from '../../Interfaces/component-interface';
@@ -15,7 +14,7 @@ export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerCo
   }
 
   return (
-    <div className='modal-container'>
+    <div className={`modal-container ${isOpen ? 'modal-open' : ''}`}>
       <div className="modal">
         <div className='modal-content'>
           <header className='modal-header'>
@@ -27,7 +26,7 @@ export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerCo
             <h1>{modalTitle}</h1>
           </header>
           {modalBody}
-          <footer>
+          <footer className='modal-footer'>
             {footerContent && footerContent.length > 0 && (
               <div className='footer-buttons-container'>
                 {footerContent.map((button: ButtonComponent, index: number) => (
