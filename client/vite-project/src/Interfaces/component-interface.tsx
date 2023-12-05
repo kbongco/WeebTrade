@@ -53,3 +53,11 @@ export default interface ProductCardComponent {
 export default interface RadioButtonComponent {
   label: string;
 }
+
+export default interface Modalcomponent {
+  isOpen: boolean;
+  modalTitle: string;
+  modalBody: React.ReactNode;
+  onClose: () => void;
+  footerContent?: any;
+}

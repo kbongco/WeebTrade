@@ -13,6 +13,7 @@ import Modal from "../../Components/Modal/Modal";
 import { disclaimerMessage, disclaimerTitle } from "../../constants";
 import RadioButtonGroup from "../../Components/RadioButton/RadioButtonGroup/RadioButtonGroup";
 import { Figures } from "../../Interfaces/anime-interface";
+import Input from "../../Components/Input/Input";
 
 export default function FigureDetails(props) {
   const { FigureName } = useParams();
@@ -29,10 +30,6 @@ export default function FigureDetails(props) {
     { label: 'Figures', path: '/browse/figures' },
     { label: FigureName, path: `browse/figures/${FigureName}`}
   ]
-  const footerDetails = [
-    { label: 'Confirm', color: 'green', size: 'small',  onClick: () => console.log('Confirm clicked') },
-    { label: 'Cancel', color: 'red', size: 'small',  onClick: () => console.log('Cancel clicked') }
-  ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -42,32 +39,44 @@ export default function FigureDetails(props) {
   };
 
   const handleClick = () => {
-    console.log('this works!')
     setIsModalOpen(true);
   }
 
   const handleClose = () => {
     setIsModalOpen(false);
     console.log('Closing!')
-    // console.log(isOpen);
+    setSelectedOption(null);
   }
 
 
   const radioButtonOptions = [
-    {
-    label: 'Cash', value: 'cash'
-    },
-    {
-      label: 'Figures', value: 'figures'
-    }
-]
+    { label: 'Cash', value: 'cash'},
+    { label: 'Figures', value: 'figures'}
+  ]
+  
+  const footerDetails = [
+    { label: 'Confirm', color: 'green', size: 'small',  onClick: () => console.log('Confirm clicked') },
+    { label: 'Cancel', color: 'red', size: 'small',  onClick: () => handleClose() }
+  ];
 
   const modalBody = (
     <body className='modal-body'>
-    <p>Are you looking to sell and make money or are you looking to trade a figure?</p>
+      <p className='modal-body-offer-text'>Are you looking to sell and make money or are you looking to trade a figure?</p>
       <div className='radio-button-container'>
         <RadioButtonGroup options={radioButtonOptions} onChange={handleRadioButtonChange} selectedOption={selectedOption} />
       </div>
+      {selectedOption === 'cash' && (
+        <div className='cash-input-container'>
+          <Input label={'How much are you offering?'}/>
+        </div>
+      )}
+
+      {selectedOption === 'figures' && (
+        <div className='figure-inputs-container'>
+          <label>Select a Figure from your inventory</label>
+          <select></select>
+        </div>
+      )}
     </body>
   )
   

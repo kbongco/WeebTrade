@@ -4,14 +4,14 @@ import { faX } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import Button from '../Button/Button';
 import ButtonComponent from '../../Interfaces/component-interface';
+import ModalComponent from '../../Interfaces/component-interface';
 
 
-export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerContent }: any){
+export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerContent }: ModalComponent){
 
   const handleClose = () => {
     onClose();
     console.log('Closing!')
-    console.log(isOpen);
   }
 
   return (

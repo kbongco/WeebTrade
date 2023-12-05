@@ -22,11 +22,19 @@
       }
 
       .close-container {
-        margin-top: 8px;
+        margin-top: 16px;
         display: flex;
         justify-content: end;
-        width: 100%;
         margin-right: 16px;
+
+        .close-button {
+          background: white;
+          border: none;
+
+          svg {
+            height: 24px;
+          }
+        }
       }
 
       .modal-body {
@@ -35,13 +43,24 @@
         padding-left: 16px;
         padding-right: 16px;
         width: auto;
+
+        .modal-body-offer-text {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+
+        .cash-input-container, .figure-inputs-container {
+          margin-top: 16px;
+        }
       }
 
       .footer-buttons-container {
         display: flex;
         justify-content: end;
-        gap: 16px;
         padding-right: 16px;
+        flex-direction: column;
+        padding-left: 16px;
+        margin-top: 24px;
       }
     }
   }
