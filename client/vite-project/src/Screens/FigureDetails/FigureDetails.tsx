@@ -8,6 +8,12 @@ import SimilarFigures from "../../Components/SimilarFigures/SimilarFigures";
 import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumb";
 import UsersOffers from "../../Components/UsersOffering/UsersOffer";
 import { useUsers } from "../../Context/UsersContext";
+import { useState } from "react";
+import Modal from "../../Components/Modal/Modal";
+import { disclaimerMessage, disclaimerTitle } from "../../constants";
+import RadioButtonGroup from "../../Components/RadioButton/RadioButtonGroup/RadioButtonGroup";
+import { Figures } from "../../Interfaces/anime-interface";
+import Input from "../../Components/Input/Input";
 
 export default function FigureDetails(props) {
   const { FigureName } = useParams();
@@ -16,15 +22,64 @@ export default function FigureDetails(props) {
   const allFigures = figures.figures;
   const allUsers = users.users;
   const allShops = props.shops;
-  const currentFigure = allFigures.find((figure) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
-  const title = 'Disclaimer';
-  const content = 'Weeb trade is not responsible for any lost money or any shenanigans. Please use caution when trading with users to avoid being scammed'
-  console.log(allShops);
+  const currentFigure = allFigures.find((figure:Figures) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
+  const modalTitle = 'Make an offer';
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const breadcrumbData = [
     { label: 'Home', path: '/' },
     { label: 'Figures', path: '/browse/figures' },
     { label: FigureName, path: `browse/figures/${FigureName}`}
   ]
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleRadioButtonChange = (value: string) => {
+    setSelectedOption(value);
+    console.log(value, 'radio');
+  };
+
+  const handleClick = () => {
+    setIsModalOpen(true);
+  }
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+    console.log('Closing!')
+    setSelectedOption(null);
+  }
+
+
+  const radioButtonOptions = [
+    { label: 'Cash', value: 'cash'},
+    { label: 'Figures', value: 'figures'}
+  ]
+  
+  const footerDetails = [
+    { label: 'Confirm', color: 'green', size: 'small',  onClick: () => console.log('Confirm clicked') },
+    { label: 'Cancel', color: 'red', size: 'small',  onClick: () => handleClose() }
+  ];
+
+  const modalBody = (
+    <body className='modal-body'>
+      <p className='modal-body-offer-text'>Are you looking to sell and make money or are you looking to trade a figure?</p>
+      <div className='radio-button-container'>
+        <RadioButtonGroup options={radioButtonOptions} onChange={handleRadioButtonChange} selectedOption={selectedOption} />
+      </div>
+      {selectedOption === 'cash' && (
+        <div className='cash-input-container'>
+          <Input label={'How much are you offering?'}/>
+        </div>
+      )}
+
+      {selectedOption === 'figures' && (
+        <div className='figure-inputs-container'>
+          <label>Select a Figure from your inventory</label>
+          <select></select>
+        </div>
+      )}
+    </body>
+  )
+  
   return (
     <>
       <BreadCrumbs breadCrumbs={breadcrumbData}/>
@@ -49,10 +104,10 @@ export default function FigureDetails(props) {
             <p className='description-text'>Manufacturer: {currentFigure?.manufacturer}</p>
           </div>
           <div className='figure-accordion-conatiner'>
-            <Accordion title={title} content={content} />
+            <Accordion title={disclaimerTitle} content={disclaimerMessage} />
           </div>
           <div className='figure-button-container'>
-            <Button label={'Make an Offer'} />
+            <Button label={'Make an Offer'} onClick={handleClick} />
           </div>
         </div>
       </div>
@@ -65,6 +120,7 @@ export default function FigureDetails(props) {
         <UsersOffers users={allUsers} shops={allShops} />
       </div>
 
+      {isModalOpen ? <Modal isOpen={isModalOpen} modalTitle={modalTitle} modalBody={modalBody} footerContent={footerDetails} onClose={handleClose} />  : ''}
     </>
   )
 }

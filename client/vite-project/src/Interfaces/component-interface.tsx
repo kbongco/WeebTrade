@@ -18,7 +18,10 @@ export default interface CardComponent {
 
 export default interface ButtonComponent {
   label: string;
-  style?: ButtonStyle;
+  color: string;
+  size: string;
+  type?: string;
+  onClick?: any;
 }
 
 export default interface InputComponent {
@@ -45,4 +48,16 @@ export default interface ProductCardComponent {
   itemType?: string;
   itemTypes: FigureTypesInterface[];
   baseUrl: string;
+}
+
+export default interface RadioButtonComponent {
+  label: string;
+}
+
+export default interface Modalcomponent {
+  isOpen: boolean;
+  modalTitle: string;
+  modalBody: React.ReactNode;
+  onClose: () => void;
+  footerContent?: any;
 }

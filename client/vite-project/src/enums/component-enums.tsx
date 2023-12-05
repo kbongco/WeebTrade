@@ -1,6 +1,7 @@
 export enum ButtonStyle {
   xSmall = 'x-small',
-  regular = 'regular'
+  regular = 'regular',
+  cancel = 'cancel'
 }
 export enum InputStyle {
   searchStyle = 'search-style'
