@@ -14,6 +14,7 @@ import { disclaimerMessage, disclaimerTitle } from "../../constants";
 import RadioButtonGroup from "../../Components/RadioButton/RadioButtonGroup/RadioButtonGroup";
 import { Figures } from "../../Interfaces/anime-interface";
 import Input from "../../Components/Input/Input";
+import Select from "../../Components/Select/Select";
 
 export default function FigureDetails(props) {
   const { FigureName } = useParams();
@@ -29,6 +30,16 @@ export default function FigureDetails(props) {
     { label: 'Home', path: '/' },
     { label: 'Figures', path: '/browse/figures' },
     { label: FigureName, path: `browse/figures/${FigureName}`}
+  ]
+
+  const testFigureData = [ 
+    { value: 'yorforgerFamilyVer', label: 'Yor Forger Family Ver' },
+    {
+      value: 'kentoNanamiPrize', label: 'Kento Nanami Prize Figure'
+    },
+    {
+      value: 'nezukoKamadoPrize', label: 'Nezuko Kamado Xross Prize Figure'
+    }
   ]
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,8 +84,8 @@ export default function FigureDetails(props) {
 
       {selectedOption === 'figures' && (
         <div className='figure-inputs-container'>
-          <label>Select a Figure from your inventory</label>
-          <select></select>
+          {/* <label>Select a Figure from your inventory</label> */}
+          <Select label={'Select a Figure from your inventory'} options={testFigureData} />
         </div>
       )}
     </body>

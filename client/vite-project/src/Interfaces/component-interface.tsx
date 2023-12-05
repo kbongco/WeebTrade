@@ -61,3 +61,13 @@ export default interface Modalcomponent {
   onClose: () => void;
   footerContent?: any;
 }
+
+export default interface Options {
+  label: string;
+  value: string;
+}
+
+export default interface SelectComponent {
+  label: string;
+  options: any;
+}
