@@ -1,0 +1,14 @@
+.select-container {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  .select-label {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  select {
+    height: 30px;
+    width: 300px;
+  }
+}
