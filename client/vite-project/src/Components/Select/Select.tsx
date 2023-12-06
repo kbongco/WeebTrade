@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import './Select.scss';
 
 export default function Select({ label, options }: any) {
 
   const [selectedOption, setSelectedOption] = useState('');
 
-  const handleSelectchange = (e) => {
+  const handleSelectChange = (e) => {
     setSelectedOption(e.target.value);
   }
 
@@ -13,9 +14,9 @@ export default function Select({ label, options }: any) {
       <label className='select-label'>
         {label}
       </label>
-      <select value="">
+      <select value={selectedOption} onChange={handleSelectChange}>
         <option>
-          Select an option
+          Select a figure
         </option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>

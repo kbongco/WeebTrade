@@ -84,7 +84,6 @@ export default function FigureDetails(props) {
 
       {selectedOption === 'figures' && (
         <div className='figure-inputs-container'>
-          {/* <label>Select a Figure from your inventory</label> */}
           <Select label={'Select a Figure from your inventory'} options={testFigureData} />
         </div>
       )}
