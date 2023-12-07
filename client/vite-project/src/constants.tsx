@@ -4,3 +4,4 @@ export const disclaimerMessage = 'Weeb trade is not responsible for any lost mon
 
 export const disclaimerTitle = 'Disclaimer';
 
+export const NSFWModalBody = 'This figure is catagorized as NSFW. Please verify your age before proceeding.'

@@ -22,6 +22,7 @@ export default function MainContainer() {
   const buttonLabels = ['Sign up', 'Browse'];
   const description = "A platform for anime figure enthusiasts to trade and find rare figures!"
   const [anime, setAnime] = useState<any>([]);
+  const [topAnime, setTopAnime] = useState<any>([]); 
   const [figureTypes, setFigureTypes] = useState<any>([]);
   const [figures, setFigures] = useState<any>([]);
   const [error, setError] = useState<string | null>(null);
@@ -33,6 +34,8 @@ export default function MainContainer() {
       try {
         const animeArray = await getAnime();
         setAnime(animeArray);
+        const topSix = animeArray?.slice(0, 6);
+        setTopAnime(topSix);
       } catch (error) {
         setError('Error fetching anime data');
       }
@@ -54,6 +57,8 @@ export default function MainContainer() {
 
     fetchData();
   }, []);
+
+  console.log(topAnime);
   return (
     <>
       <UsersProvider>
@@ -71,7 +76,7 @@ export default function MainContainer() {
                 <FigureTypes figureTypes={figureTypes} />
                 </div>
                 <div className='top-anime-series'>
-                  <TopAnime anime={anime} />
+                  <TopAnime topAnime={topAnime} />
                 </div>
                 <div className='coming-soon'>
                 <ComingSoon />

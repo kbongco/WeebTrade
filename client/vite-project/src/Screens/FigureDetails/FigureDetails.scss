@@ -8,6 +8,10 @@
     .figure-photo {
       width: 90%;
       height: 478px;
+
+      &.blurred {
+        filter: blur(30px); 
+      }
     }
   }
 

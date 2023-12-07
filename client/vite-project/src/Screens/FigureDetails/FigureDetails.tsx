@@ -8,7 +8,7 @@ import SimilarFigures from "../../Components/SimilarFigures/SimilarFigures";
 import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumb";
 import UsersOffers from "../../Components/UsersOffering/UsersOffer";
 import { useUsers } from "../../Context/UsersContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../../Components/Modal/Modal";
 import { disclaimerMessage, disclaimerTitle } from "../../constants";
 import RadioButtonGroup from "../../Components/RadioButton/RadioButtonGroup/RadioButtonGroup";
@@ -25,12 +25,17 @@ export default function FigureDetails(props) {
   const allShops = props.shops;
   const currentFigure = allFigures.find((figure:Figures) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
   const modalTitle = 'Make an offer';
+  const figureSFW = currentFigure?.safeforwork;
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const breadcrumbData = [
     { label: 'Home', path: '/' },
     { label: 'Figures', path: '/browse/figures' },
     { label: FigureName, path: `browse/figures/${FigureName}`}
   ]
+
+  console.log(currentFigure?.safeforwork,'fig');
+  console.log(currentFigure, 'fig');
+  console.log(figureSFW, 'fig');
 
   const testFigureData = [ 
     { value: 'yorforgerFamilyVer', label: 'Yor Forger Family Ver' },
@@ -43,10 +48,11 @@ export default function FigureDetails(props) {
   ]
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAgeVerified, setIsAgeVerified] = useState(false);
+  const [isSafeForWorkPic, setIsSafeForWorkPic] = useState(true);
 
   const handleRadioButtonChange = (value: string) => {
     setSelectedOption(value);
-    console.log(value, 'radio');
   };
 
   const handleClick = () => {
@@ -55,7 +61,6 @@ export default function FigureDetails(props) {
 
   const handleClose = () => {
     setIsModalOpen(false);
-    console.log('Closing!')
     setSelectedOption(null);
   }
 
@@ -89,13 +94,30 @@ export default function FigureDetails(props) {
       )}
     </body>
   )
+
+  const isSafeForWork = (figureSFW?:boolean) => {
+    if (!figureSFW) {
+      setIsSafeForWorkPic(false);
+      console.log('not safe');
+    } else {
+      console.log('safe');
+    }
+  }
+
+  useEffect(() => {
+    isSafeForWork(figureSFW);
+  },[figureSFW])
   
   return (
     <>
       <BreadCrumbs breadCrumbs={breadcrumbData}/>
       <div className='figure-details-container'>
         <div className='figure-photo-container'>
-          <img className='figure-photo' src={currentFigure?.imgLink} />
+        <img
+        className={`figure-photo ${ isAgeVerified || isSafeForWorkPic ? '' : 'blurred'}`}
+        src={currentFigure?.imgLink}
+        alt="Figure Photo"
+      />
         </div>
         <div className='figure-info-container'>
                   <div className='figure-details-name'>
