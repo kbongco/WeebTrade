@@ -5,10 +5,10 @@ export const useYear = (start, end) => {
 
   useEffect(() => {
     const currentYear = new Date().getFullYear();
-    const range = Array.from({ length: currentYear - start + 1 }, (_, index) => start + index);
+    const rangeEnd = end || currentYear - 18;
+    const range = Array.from({ length: rangeEnd - start + 1 }, (_, index) => start + index);
     const formattedYearsData = range.map((year) => ({ value: year, label: year.toString() }));
     setYears(formattedYearsData);
-  }, [start]);
-
-  return years;
+  }, [start, end]);
+return years;
 }
