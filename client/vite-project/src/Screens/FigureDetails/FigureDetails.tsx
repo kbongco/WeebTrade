@@ -15,10 +15,15 @@ import RadioButtonGroup from "../../Components/RadioButton/RadioButtonGroup/Radi
 import { Figures } from "../../Interfaces/anime-interface";
 import Input from "../../Components/Input/Input";
 import Select from "../../Components/Select/Select";
+import { useYear } from "../../hooks/useYear";
 
 export default function FigureDetails(props) {
   const { FigureName } = useParams();
   const figures: any = useFigures();
+  const start = 1940;
+  const currentYear = new Date().getFullYear();
+  const years = useYear(start,currentYear);
+  console.log(years,'year');
   const users: any = useUsers();
   const allFigures = figures.figures;
   const allUsers = users.users;
@@ -104,6 +109,7 @@ export default function FigureDetails(props) {
       </p>
       <div className='input-containers'>
         <Select label={'Month'} options={monthsData} />
+        <Select label={'Year'} options={years}/>
       </div>
     </body>
   )
