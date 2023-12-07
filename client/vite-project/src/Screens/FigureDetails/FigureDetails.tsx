@@ -10,7 +10,7 @@ import UsersOffers from "../../Components/UsersOffering/UsersOffer";
 import { useUsers } from "../../Context/UsersContext";
 import { useEffect, useState } from "react";
 import Modal from "../../Components/Modal/Modal";
-import { disclaimerMessage, disclaimerTitle } from "../../constants";
+import { NSFWModalBody, NSFWModalTitle, disclaimerMessage, disclaimerTitle, monthsData } from "../../constants";
 import RadioButtonGroup from "../../Components/RadioButton/RadioButtonGroup/RadioButtonGroup";
 import { Figures } from "../../Interfaces/anime-interface";
 import Input from "../../Components/Input/Input";
@@ -23,21 +23,21 @@ export default function FigureDetails(props) {
   const allFigures = figures.figures;
   const allUsers = users.users;
   const allShops = props.shops;
-  const currentFigure = allFigures.find((figure:Figures) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
+  const currentFigure = allFigures.find((figure: Figures) => figure.FigureName.toLowerCase() === FigureName?.toLowerCase());
   const modalTitle = 'Make an offer';
   const figureSFW = currentFigure?.safeforwork;
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const breadcrumbData = [
     { label: 'Home', path: '/' },
     { label: 'Figures', path: '/browse/figures' },
-    { label: FigureName, path: `browse/figures/${FigureName}`}
+    { label: FigureName, path: `browse/figures/${FigureName}` }
   ]
 
-  console.log(currentFigure?.safeforwork,'fig');
+  console.log(currentFigure?.safeforwork, 'fig');
   console.log(currentFigure, 'fig');
   console.log(figureSFW, 'fig');
 
-  const testFigureData = [ 
+  const testFigureData = [
     { value: 'yorforgerFamilyVer', label: 'Yor Forger Family Ver' },
     {
       value: 'kentoNanamiPrize', label: 'Kento Nanami Prize Figure'
@@ -50,6 +50,7 @@ export default function FigureDetails(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAgeVerified, setIsAgeVerified] = useState(false);
   const [isSafeForWorkPic, setIsSafeForWorkPic] = useState(true);
+  const [nsfwModalOpen, setnsfwModalOpen] = useState(false);
 
   const handleRadioButtonChange = (value: string) => {
     setSelectedOption(value);
@@ -61,18 +62,19 @@ export default function FigureDetails(props) {
 
   const handleClose = () => {
     setIsModalOpen(false);
+    setnsfwModalOpen(false);
     setSelectedOption(null);
   }
 
 
   const radioButtonOptions = [
-    { label: 'Cash', value: 'cash'},
-    { label: 'Figures', value: 'figures'}
+    { label: 'Cash', value: 'cash' },
+    { label: 'Figures', value: 'figures' }
   ]
-  
+
   const footerDetails = [
-    { label: 'Confirm', color: 'green', size: 'small',  onClick: () => console.log('Confirm clicked') },
-    { label: 'Cancel', color: 'red', size: 'small',  onClick: () => handleClose() }
+    { label: 'Confirm', color: 'green', size: 'small', onClick: () => console.log('Confirm clicked') },
+    { label: 'Cancel', color: 'red', size: 'small', onClick: () => handleClose() }
   ];
 
   const modalBody = (
@@ -83,7 +85,7 @@ export default function FigureDetails(props) {
       </div>
       {selectedOption === 'cash' && (
         <div className='cash-input-container'>
-          <Input label={'How much are you offering?'}/>
+          <Input label={'How much are you offering?'} />
         </div>
       )}
 
@@ -95,34 +97,43 @@ export default function FigureDetails(props) {
     </body>
   )
 
-  const isSafeForWork = (figureSFW?:boolean) => {
-    if (!figureSFW) {
+  const NSFWModalBody = (
+    <body className='modal-body'>
+      <p className='modal-body-nsfw-text'>
+        This figure is catageorized as NSFW Please verify your age before proceeding
+      </p>
+      <div className='input-containers'>
+        <Select label={'Month'} options={monthsData} />
+      </div>
+    </body>
+  )
+
+  const isSafeForWork = (figureSFW?: boolean) => {
+    if (!isAgeVerified && figureSFW === false) {
       setIsSafeForWorkPic(false);
-      console.log('not safe');
-    } else {
-      console.log('safe');
+      setnsfwModalOpen(true);
     }
   }
 
   useEffect(() => {
     isSafeForWork(figureSFW);
-  },[figureSFW])
-  
+  }, [figureSFW])
+
   return (
     <>
-      <BreadCrumbs breadCrumbs={breadcrumbData}/>
+      <BreadCrumbs breadCrumbs={breadcrumbData} />
       <div className='figure-details-container'>
         <div className='figure-photo-container'>
-        <img
-        className={`figure-photo ${ isAgeVerified || isSafeForWorkPic ? '' : 'blurred'}`}
-        src={currentFigure?.imgLink}
-        alt="Figure Photo"
-      />
+          <img
+            className={`figure-photo ${!isAgeVerified && !figureSFW ? 'blurred' : ''}`}
+            src={currentFigure?.imgLink}
+            alt="Figure Photo"
+          />
         </div>
         <div className='figure-info-container'>
-                  <div className='figure-details-name'>
+          <div className='figure-details-name'>
             <h1>{FigureName}</h1>
-        </div>
+          </div>
           <div className='figure-photo-value-container'>
             <div className='figure-star-container'>
               <Ratings />
@@ -152,7 +163,9 @@ export default function FigureDetails(props) {
         <UsersOffers users={allUsers} shops={allShops} />
       </div>
 
-      {isModalOpen ? <Modal isOpen={isModalOpen} modalTitle={modalTitle} modalBody={modalBody} footerContent={footerDetails} onClose={handleClose} />  : ''}
+      {isModalOpen ? <Modal isOpen={isModalOpen} modalTitle={modalTitle} modalBody={modalBody} footerContent={footerDetails} onClose={handleClose} /> : ''}
+
+      {nsfwModalOpen ? <Modal isOpen={isModalOpen} modalTitle={NSFWModalTitle} modalBody={NSFWModalBody} footerContent={footerDetails} onClose={handleClose} /> : ''}
     </>
   )
 }

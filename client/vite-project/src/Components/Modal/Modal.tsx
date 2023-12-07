@@ -10,7 +10,6 @@ export default function Modal({ isOpen, modalTitle, onClose, modalBody, footerCo
 
   const handleClose = () => {
     onClose();
-    console.log('Closing!')
   }
 
   return (

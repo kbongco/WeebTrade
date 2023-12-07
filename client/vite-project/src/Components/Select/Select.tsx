@@ -16,7 +16,7 @@ export default function Select({ label, options }: any) {
       </label>
       <select value={selectedOption} onChange={handleSelectChange}>
         <option>
-          Select a figure
+          Select an option
         </option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
