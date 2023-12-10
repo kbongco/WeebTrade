@@ -37,10 +37,6 @@ export default function FigureDetails(props) {
     { label: FigureName, path: `browse/figures/${FigureName}` }
   ]
 
-  console.log(currentFigure?.safeforwork, 'fig');
-  console.log(currentFigure, 'fig');
-  console.log(figureSFW, 'fig');
-
   const testFigureData = [
     { value: 'yorforgerFamilyVer', label: 'Yor Forger Family Ver' },
     {
@@ -55,6 +51,7 @@ export default function FigureDetails(props) {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
   const [isSafeForWorkPic, setIsSafeForWorkPic] = useState(true);
   const [nsfwModalOpen, setnsfwModalOpen] = useState(false);
+  const [isOver18, setIsOver18] = useState(false);
 
   const handleRadioButtonChange = (value: string) => {
     setSelectedOption(value);
@@ -80,6 +77,24 @@ export default function FigureDetails(props) {
     { label: 'Confirm', color: 'green', size: 'small', onClick: () => console.log('Confirm clicked') },
     { label: 'Cancel', color: 'red', size: 'small', onClick: () => handleClose() }
   ];
+
+
+  const nsfwFooterDetails = [
+    { label: 'Confirm', color: 'green', size: 'small', onClick:() => verifiedAge()},
+    { label: 'Cancel', color: 'red', size: 'small', onClick: () => noVerification()}
+  ]
+  
+  const noVerification = () => {
+    setnsfwModalOpen(false);
+  }
+
+  const verifiedAge = () => {
+    setIsOver18(true);
+    console.log('you are over 18')
+  }
+
+
+
 
   const modalBody = (
     <body className='modal-body'>
@@ -122,7 +137,8 @@ export default function FigureDetails(props) {
 
   useEffect(() => {
     isSafeForWork(figureSFW);
-  }, [figureSFW])
+    setIsOver18(true);
+  }, [figureSFW,isOver18])
 
   return (
     <>
@@ -170,7 +186,7 @@ export default function FigureDetails(props) {
 
       {isModalOpen ? <Modal isOpen={isModalOpen} modalTitle={modalTitle} modalBody={modalBody} footerContent={footerDetails} onClose={handleClose} /> : ''}
 
-      {nsfwModalOpen ? <Modal isOpen={isModalOpen} modalTitle={NSFWModalTitle} modalBody={NSFWModalBody} footerContent={footerDetails} onClose={handleClose} /> : ''}
+      {nsfwModalOpen ? <Modal isOpen={isModalOpen} modalTitle={NSFWModalTitle} modalBody={NSFWModalBody} footerContent={nsfwFooterDetails} onClose={handleClose} /> : ''}
     </>
   )
 }

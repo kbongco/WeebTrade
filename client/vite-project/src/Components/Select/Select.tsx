@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Select.scss';
 
 export default function Select({ label, options }: any) {
@@ -8,6 +8,9 @@ export default function Select({ label, options }: any) {
   const handleSelectChange = (e) => {
     setSelectedOption(e.target.value);
   }
+
+  useEffect(() => {
+  },[selectedOption])
 
   return (<>
     <div className='select-container'>

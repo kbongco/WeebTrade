@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
   return (
-    <div className='weeb-nav-container'>
+    <nav className='weeb-nav-container'>
       <h1 className='weeb-logo'>WeebTrades</h1>
       <div className='weeb-navigation'>
         <ul className='weeb-navigation-links'>
-          <li className='weeb-link'>Home</li>
+          <li className='weeb-link'>
+            <Link className='weeb-exact-link' to='/'>
+              Home
+            </Link>
+          </li>
           <li className='weeb-link'>
             <Link className='weeb-exact-link' to='/browse/series'>Browse</Link>
           </li>
           <li className='weeb-link'>Top Anime</li>
           <li className='weeb-link'>
-            <Link className='weeb-exact-link'>
+            <Link className='weeb-exact-link' to='/search'>
               Search
             </Link>
           </li>
@@ -24,6 +28,6 @@ export default function NavBar() {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   )
 }
