@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Select.scss';
 
 export default function Select({ label, options }: any) {
@@ -9,6 +9,9 @@ export default function Select({ label, options }: any) {
     setSelectedOption(e.target.value);
   }
 
+  useEffect(() => {
+  },[selectedOption])
+
   return (<>
     <div className='select-container'>
       <label className='select-label'>
@@ -16,7 +19,7 @@ export default function Select({ label, options }: any) {
       </label>
       <select value={selectedOption} onChange={handleSelectChange}>
         <option>
-          Select a figure
+          Select an option
         </option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
