@@ -15,6 +15,7 @@ import { FiguresProvider } from '../Context/FiguresContext';
 import FigureDetails from '../Screens/FigureDetails/FigureDetails';
 import { UsersProvider } from '../Context/UsersContext';
 import { getShops } from '../services/users-stores';
+import FiguresCatalog from '../Screens/FiguresCatalog/FiguresCatalog';
 
 export default function MainContainer() {
   const title = 'WeebTrades';
@@ -86,7 +87,10 @@ export default function MainContainer() {
           },
           { path: '/anime/:title', element: <AnimeDetails anime={anime} figures={figures} figureTypes={figureTypes} /> },
           { path: '/browse/series', element: <BrowseSeries anime={anime} /> },
-          { path: '/browse/figures/:FigureName', element: <FigureDetails figures={figures} users={users} shops={shops} />}
+          { path: '/browse/figures/:FigureName', element: <FigureDetails figures={figures} users={users} shops={shops} /> },
+          {
+            path: '/browse/figures', element: 
+              <FiguresCatalog figures={figures} />}
         ])
         }
         </FiguresProvider>
