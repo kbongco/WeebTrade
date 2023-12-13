@@ -90,6 +90,8 @@ export default function FigureDetails(props) {
 
   const verifiedAge = () => {
     setIsOver18(true);
+    setnsfwModalOpen(false);
+    setIsAgeVerified(true);
     console.log('you are over 18')
   }
 
@@ -132,7 +134,7 @@ export default function FigureDetails(props) {
     if (!isAgeVerified && figureSFW === false) {
       setIsSafeForWorkPic(false);
       setnsfwModalOpen(true);
-    }
+    } 
   }
 
   useEffect(() => {
