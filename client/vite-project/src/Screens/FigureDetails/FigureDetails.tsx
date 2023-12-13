@@ -92,7 +92,7 @@ export default function FigureDetails(props) {
     setIsOver18(true);
     setnsfwModalOpen(false);
     setIsAgeVerified(true);
-    console.log('you are over 18')
+    document.cookie = 'isAgeVerified=true; path=/';
   }
 
 
@@ -138,9 +138,15 @@ export default function FigureDetails(props) {
   }
 
   useEffect(() => {
-    isSafeForWork(figureSFW);
-    setIsOver18(true);
-  }, [figureSFW,isOver18])
+    const storedAgeVerification = document.cookie.includes('isAgeVerified=true');
+    
+    if (storedAgeVerification) {
+      setIsAgeVerified(true);
+    } else {
+      isSafeForWork(figureSFW);
+      setIsOver18(true);
+    }
+  }, [figureSFW, isOver18]);
 
   return (
     <>
