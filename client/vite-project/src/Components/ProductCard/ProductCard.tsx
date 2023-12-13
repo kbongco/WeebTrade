@@ -23,7 +23,7 @@ export default function ProductCard(props) {
         </div>
         <div className='product-card-text'>
           <p>{FigureName}</p>
-          <p>{figureTypeText}</p>
+          {/* <p>{figureTypeText}</p> */}
           <div className='product-card-details'>
             <Link to={figureUrl} className='product-card-view'>
               View Details
