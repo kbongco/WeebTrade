@@ -26,6 +26,8 @@ export default interface ButtonComponent {
 
 export default interface InputComponent {
   label: string;
+  value: string;
+  onChange: () => void;
   styles?: InputStyle;
 }
 
