@@ -67,7 +67,15 @@ export default interface Options {
   value: string;
 }
 
-export default interface SelectComponent {
+export interface SelectComponent {
   label: string;
   options: any;
+}
+
+export interface Pagination {
+  totalNumber: number;
+  itemsPerPage: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
+  lastPage: number;
 }

@@ -2,7 +2,6 @@ import './TopAnime.scss';
 import { Anime } from '../../Interfaces/anime-interface';
 
 export default function TopAnime(props: any) {
-  console.log(props);
 
   return ( 
     <>

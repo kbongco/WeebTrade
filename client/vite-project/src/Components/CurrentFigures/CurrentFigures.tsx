@@ -1,5 +1,6 @@
 import { useFigures } from '../../Context/FiguresContext';
 import { Figures } from '../../Interfaces/anime-interface';
+import getFigureTypesForFigures from '../../utils/getTypesForFigures';
 import ProductCard from '../ProductCard/ProductCard';
 import './CurrentFigures.scss';
 
@@ -7,9 +8,7 @@ export default function CurrentFigures({anime, figureTypes}) {
   const figures: any = useFigures();
   const allFigures = figures.figures;
   const animeFigures = allFigures.filter((figure: Figures) => figure.Anime === anime?.id)
-  const allFigureTypes = animeFigures.map((figure: Figures) =>
-  figureTypes.find((type: any) => type.id === figure.FigureType)
-);
+  const allFigureTypes = getFigureTypesForFigures(animeFigures, figureTypes);
 
   return (
     <>

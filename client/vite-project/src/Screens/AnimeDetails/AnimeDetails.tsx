@@ -7,8 +7,6 @@ import { Anime } from "../../Interfaces/anime-interface";
 
 export default function AnimeDetails(props) {
 
-  console.log(props);
-
   const { title } = useParams();
   const anime = props.anime.find((anime:Anime) => anime.Title === title);
   const figureTypes = props.figureTypes;

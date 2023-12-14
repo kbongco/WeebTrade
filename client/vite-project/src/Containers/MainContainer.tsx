@@ -90,7 +90,7 @@ export default function MainContainer() {
           { path: '/browse/figures/:FigureName', element: <FigureDetails figures={figures} users={users} shops={shops} /> },
           {
             path: '/browse/figures', element: 
-              <FiguresCatalog figures={figures} />}
+              <FiguresCatalog figureTypes={figureTypes} />}
         ])
         }
         </FiguresProvider>
