@@ -6,12 +6,20 @@ import { useFigures } from "../../Context/FiguresContext";
 import { Figures } from "../../Interfaces/anime-interface";
 import getFigureTypesForFigures from "../../utils/getTypesForFigures";
 import './FiguresCatalog.scss';
+import Pagination from "../../Components/Pagination/Pagination";
 
 export default function FiguresCatalog(props) { 
   const figures: any = useFigures();
   const figureTypes = props.figureTypes;
   const allFigureTypes = getFigureTypesForFigures(figures.figures, figureTypes);
   const [searchItem, setSearchItem] = useState('');
+  const totalItems = figures.figures.length;
+  const itemsPerPage = 6;
+  const [currentPage, setCurrentPage] = useState(1);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+
+
 
   const handleSearchInputChange = (e) => {
     setSearchItem(e.target.value);
@@ -41,7 +49,12 @@ export default function FiguresCatalog(props) {
           ))}
         </div>
         <div className='browse-figures-pagination-container'>
-
+          <Pagination
+            totalNumber={totalItems}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+            lastPage={Math.ceil(totalItems / itemsPerPage)} />
         </div>
       </div>
   </>)
