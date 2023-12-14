@@ -1,15 +1,22 @@
-.chbi-pagination-backward, .chbi-pagination-forward {
-  outline: none;
-  background: transparent;
-  border: 1px solid transparent;
-}
-
-.chbi-pagination-text {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
-.chbi-pagination, .chbi-pagination-right-arrow {
+.chbi-pagination-container {
   display: flex;
-  align-items: center;
+  justify-content: center;
+
+  .chbi-pagination,
+  .chbi-pagination-right-arrow {
+    align-items: center;
+    display: flex;
+
+    .chbi-pagination-backward,
+    .chbi-pagination-forward {
+      outline: none;
+      background: transparent;
+      border: 1px solid transparent;
+    }
+  }
+
+  .chbi-pagination-text {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
 }

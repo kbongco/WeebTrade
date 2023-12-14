@@ -1,4 +1,9 @@
 .browse-figures-container {
+  .browse-figures-search-input {
+    input {
+      border-radius: 20px;
+    }
+  }
 
   .browse-figures-text {
     margin-left: 16px;
@@ -9,5 +14,9 @@
     flex-wrap: wrap;
     gap: 16px;
     margin-left: 8px;
+  }
+
+  .browse-figures-pagination-container {
+    margin-top: 16px;
   }
 }

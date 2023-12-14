@@ -14,10 +14,13 @@ export default function FiguresCatalog(props) {
   const allFigureTypes = getFigureTypesForFigures(figures.figures, figureTypes);
   const [searchItem, setSearchItem] = useState('');
   const totalItems = figures.figures.length;
+  console.log(figures.figures.length)
   const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * itemsPerPage;
+  console.log(startIndex);
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+  const setOfFigures = figures.figures.slice(startIndex, endIndex);
 
 
 
@@ -44,8 +47,8 @@ export default function FiguresCatalog(props) {
           <button onClick={handleSearch}>Test</button>
         </div>
         <div className='browse-figures-card-container'>
-          {figures.figures.map((figure: Figures, id: number) => (
-            <ProductCard key={id} {...figure} figureType={allFigureTypes} />
+          {setOfFigures.map((figure: Figures, id: number) => (
+            <ProductCard key={id} {...figure} figureType={allFigureTypes}/> 
           ))}
         </div>
         <div className='browse-figures-pagination-container'>
