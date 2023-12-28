@@ -1,4 +1,22 @@
 .browse-figures-container {
+
+  .browse-figures-search-containers {
+    display: flex;
+    justify-content: space-around;
+
+    .browse-figures-search-button {
+      border: none;
+      background: none;
+      margin-top: 8px;
+
+      svg {
+        height: 28px;
+        width: 25px;
+      }
+    }
+
+  }
+
   .browse-figures-search-input {
     input {
       border-radius: 20px;
@@ -10,6 +28,7 @@
   }
 
   .browse-figures-card-container {
+    margin-top: 24px;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
