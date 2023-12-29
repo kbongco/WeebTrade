@@ -22,7 +22,6 @@ export default function FiguresCatalog(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
-  // const setOfFigures = figures.figures.slice(startIndex, endIndex);
   const setOfFigures = searchItem.length > 0 ? searchedFigures : allFigures.slice(startIndex, endIndex);
 
 
@@ -65,20 +64,15 @@ export default function FiguresCatalog(props) {
             </button>
           </div>
         </div>
-        <div className='browse-figures-card-container'>
-          {/* {setOfFigures.map((figure: Figures, id: number) => (
-            <ProductCard key={id} {...figure} figureType={allFigureTypes} />
-          ))}
-          {searchItem.length > 0 && searchedFigures.length === 0 && (
-            <p>No figures found</p>
-          )} */}
-                {setOfFigures.map((figure: Figures, id: number) => (
+            <div className='browse-figures-card-container'>
+      {setOfFigures.map((figure: Figures, id: number) => (
         <ProductCard key={id} {...figure} figureType={allFigureTypes} />
       ))}
       {searchItem.length > 0 && searchedFigures.length === 0 && (
         <p>No figures found</p>
       )}
-        </div>
+    </div>
+        
         <div className='browse-figures-pagination-container'>
           <Pagination
             totalNumber={totalItems}
