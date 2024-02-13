@@ -1,6 +1,6 @@
 # WeebTrade
 <img src="https://i.ibb.co/jV6VRnL/Screen-Shot-2023-11-16-at-11-06-30-AM.png" alt="Screen-Shot-2023-11-16-at-11-06-30-AM" border="0" height='300px'><br/>
-A full stack ecommerce application built in a ReactJS front end with a NestJS backend
+A full stack ecommerce application built in a ReactJS front end with a Ruby/Rails backend
 
 ## Table of Contents
 [WeebTrade](#weebtrade)
