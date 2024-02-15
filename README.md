@@ -76,5 +76,5 @@ https://whimsical.com/weebtrade-structure-and-components-8EUU9ZTNiLK5MSgbWSEbwS
 ## Backend Design and Structure 
 *Coming Soon*
 Current backend code: https://github.com/kbongco/WeebTrade-API
-Current SupaBase Structure:
+Current Database schema:
 *coming soon*
